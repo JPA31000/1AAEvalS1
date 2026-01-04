@@ -1,0 +1,1739 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Évaluation - Synthèse Savoirs S1 + Analyse CCTP École Fleurance • RE2020</title>
+  <style>
+    /* Reset and Base */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { line-height: 1.5; -webkit-text-size-adjust: 100%; }
+    body { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+    img, svg { display: block; max-width: 100%; }
+    button, input, select, textarea { font-family: inherit; font-size: 100%; line-height: inherit; color: inherit; }
+    button { cursor: pointer; background: transparent; border: none; }
+    table { border-collapse: collapse; }
+    
+    /* Animations */
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    .animate-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+    
+    /* Layout */
+    .block { display: block; }
+    .inline-block { display: inline-block; }
+    .inline-flex { display: inline-flex; }
+    .flex { display: flex; }
+    .grid { display: grid; }
+    .hidden { display: none; }
+    .fixed { position: fixed; }
+    .sticky { position: sticky; }
+    .inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
+    .top-0 { top: 0; }
+    .z-50 { z-index: 50; }
+    
+    /* Flexbox */
+    .flex-1 { flex: 1 1 0%; }
+    .flex-wrap { flex-wrap: wrap; }
+    .items-center { align-items: center; }
+    .items-start { align-items: flex-start; }
+    .justify-center { justify-content: center; }
+    .justify-between { justify-content: space-between; }
+    
+    /* Grid */
+    .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+    .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    @media (min-width: 768px) {
+      .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    @media (min-width: 1024px) {
+      .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    
+    /* Spacing - Gap */
+    .gap-1 { gap: 0.25rem; }
+    .gap-2 { gap: 0.5rem; }
+    .gap-3 { gap: 0.75rem; }
+    .gap-4 { gap: 1rem; }
+    .gap-6 { gap: 1.5rem; }
+    
+    /* Spacing - Margin */
+    .mx-auto { margin-left: auto; margin-right: auto; }
+    .mb-1 { margin-bottom: 0.25rem; }
+    .mb-2 { margin-bottom: 0.5rem; }
+    .mb-3 { margin-bottom: 0.75rem; }
+    .mb-4 { margin-bottom: 1rem; }
+    .mb-6 { margin-bottom: 1.5rem; }
+    .mb-8 { margin-bottom: 2rem; }
+    .mr-3 { margin-right: 0.75rem; }
+    .mt-2 { margin-top: 0.5rem; }
+    .mt-4 { margin-top: 1rem; }
+    .mt-6 { margin-top: 1.5rem; }
+    .mt-8 { margin-top: 2rem; }
+    
+    /* Spacing - Padding */
+    .p-2 { padding: 0.5rem; }
+    .p-3 { padding: 0.75rem; }
+    .p-4 { padding: 1rem; }
+    .p-6 { padding: 1.5rem; }
+    .p-8 { padding: 2rem; }
+    .p-12 { padding: 3rem; }
+    .px-1 { padding-left: 0.25rem; padding-right: 0.25rem; }
+    .px-2 { padding-left: 0.5rem; padding-right: 0.5rem; }
+    .px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
+    .px-4 { padding-left: 1rem; padding-right: 1rem; }
+    .px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .px-8 { padding-left: 2rem; padding-right: 2rem; }
+    .py-1 { padding-top: 0.25rem; padding-bottom: 0.25rem; }
+    .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+    .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+    .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+    .pt-4 { padding-top: 1rem; }
+    .pt-6 { padding-top: 1.5rem; }
+    .pb-4 { padding-bottom: 1rem; }
+    
+    /* Spacing - Space */
+    .space-y-2 > * + * { margin-top: 0.5rem; }
+    .space-y-3 > * + * { margin-top: 0.75rem; }
+    .space-y-4 > * + * { margin-top: 1rem; }
+    
+    /* Sizing */
+    .w-5 { width: 1.25rem; }
+    .w-6 { width: 1.5rem; }
+    .w-8 { width: 2rem; }
+    .w-10 { width: 2.5rem; }
+    .w-16 { width: 4rem; }
+    .w-20 { width: 5rem; }
+    .w-full { width: 100%; }
+    .h-2 { height: 0.5rem; }
+    .h-5 { height: 1.25rem; }
+    .h-6 { height: 1.5rem; }
+    .h-8 { height: 2rem; }
+    .h-10 { height: 2.5rem; }
+    .h-16 { height: 4rem; }
+    .h-20 { height: 5rem; }
+    .min-h-screen { min-height: 100vh; }
+    .max-w-lg { max-width: 32rem; }
+    .max-w-md { max-width: 28rem; }
+    .max-w-xl { max-width: 36rem; }
+    .max-w-2xl { max-width: 42rem; }
+    .max-w-4xl { max-width: 56rem; }
+    .max-w-6xl { max-width: 72rem; }
+    
+    /* Typography */
+    .text-xs { font-size: 0.75rem; line-height: 1rem; }
+    .text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+    .text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+    .text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+    .text-2xl { font-size: 1.5rem; line-height: 2rem; }
+    .text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+    .text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+    .font-medium { font-weight: 500; }
+    .font-semibold { font-weight: 600; }
+    .font-bold { font-weight: 700; }
+    .font-mono { font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace; }
+    .uppercase { text-transform: uppercase; }
+    .tracking-widest { letter-spacing: 0.1em; }
+    .text-left { text-align: left; }
+    .text-center { text-align: center; }
+    .whitespace-nowrap { white-space: nowrap; }
+    
+    /* Colors - Text */
+    .text-white { color: #ffffff; }
+    .text-gray-300 { color: #d1d5db; }
+    .text-gray-400 { color: #9ca3af; }
+    .text-gray-500 { color: #6b7280; }
+    .text-gray-600 { color: #4b5563; }
+    .text-gray-700 { color: #374151; }
+    .text-gray-800 { color: #1f2937; }
+    .text-gray-900 { color: #111827; }
+    .text-red-800 { color: #991b1b; }
+    .text-orange-800 { color: #9a3412; }
+    .text-amber-600 { color: #d97706; }
+    .text-amber-700 { color: #b45309; }
+    .text-amber-800 { color: #92400e; }
+    .text-yellow-800 { color: #854d0e; }
+    .text-green-600 { color: #16a34a; }
+    .text-green-800 { color: #166534; }
+    .text-teal-800 { color: #115e59; }
+    .text-blue-800 { color: #1e40af; }
+    .text-purple-200 { color: #e9d5ff; }
+    .text-purple-600 { color: #9333ea; }
+    .text-purple-800 { color: #6b21a8; }
+    
+    /* Colors - Background */
+    .bg-white { background-color: #ffffff; }
+    .bg-black { background-color: #000000; }
+    .bg-gray-50 { background-color: #f9fafb; }
+    .bg-gray-100 { background-color: #f3f4f6; }
+    .bg-gray-200 { background-color: #e5e7eb; }
+    .bg-gray-700 { background-color: #374151; }
+    .bg-gray-800 { background-color: #1f2937; }
+    .bg-red-50 { background-color: #fef2f2; }
+    .bg-red-500 { background-color: #ef4444; }
+    .bg-red-600 { background-color: #dc2626; }
+    .bg-orange-50 { background-color: #fff7ed; }
+    .bg-orange-500 { background-color: #f97316; }
+    .bg-amber-50 { background-color: #fffbeb; }
+    .bg-yellow-50 { background-color: #fefce8; }
+    .bg-yellow-500 { background-color: #eab308; }
+    .bg-green-50 { background-color: #f0fdf4; }
+    .bg-green-500 { background-color: #22c55e; }
+    .bg-green-600 { background-color: #16a34a; }
+    .bg-teal-50 { background-color: #f0fdfa; }
+    .bg-teal-500 { background-color: #14b8a6; }
+    .bg-sky-500 { background-color: #0ea5e9; }
+    .bg-blue-50 { background-color: #eff6ff; }
+    .bg-blue-500 { background-color: #3b82f6; }
+    .bg-indigo-500 { background-color: #6366f1; }
+    .bg-purple-50 { background-color: #faf5ff; }
+    .bg-purple-100 { background-color: #f3e8ff; }
+    .bg-purple-500 { background-color: #a855f7; }
+    .bg-purple-600 { background-color: #9333ea; }
+    .bg-purple-800 { background-color: #6b21a8; }
+    .bg-pink-500 { background-color: #ec4899; }
+    .bg-opacity-30 { --tw-bg-opacity: 0.3; }
+    .bg-opacity-50 { --tw-bg-opacity: 0.5; }
+    
+    /* Gradients */
+    .bg-gradient-to-r { background-image: linear-gradient(to right, var(--tw-gradient-stops)); }
+    .bg-gradient-to-br { background-image: linear-gradient(to bottom right, var(--tw-gradient-stops)); }
+    .from-gray-800 { --tw-gradient-from: #1f2937; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(31, 41, 55, 0)); }
+    .from-green-800 { --tw-gradient-from: #166534; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(22, 101, 52, 0)); }
+    .from-purple-600 { --tw-gradient-from: #9333ea; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(147, 51, 234, 0)); }
+    .from-purple-800 { --tw-gradient-from: #6b21a8; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(107, 33, 168, 0)); }
+    .from-purple-900 { --tw-gradient-from: #581c87; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(88, 28, 135, 0)); }
+    .via-indigo-800 { --tw-gradient-stops: var(--tw-gradient-from), #3730a3, var(--tw-gradient-to, rgba(55, 48, 163, 0)); }
+    .to-gray-900 { --tw-gradient-to: #111827; }
+    .to-green-900 { --tw-gradient-to: #14532d; }
+    .to-blue-900 { --tw-gradient-to: #1e3a8a; }
+    .to-indigo-600 { --tw-gradient-to: #4f46e5; }
+    .to-indigo-800 { --tw-gradient-to: #3730a3; }
+    
+    /* Borders */
+    .border { border-width: 1px; }
+    .border-2 { border-width: 2px; }
+    .border-t { border-top-width: 1px; }
+    .border-l-4 { border-left-width: 4px; }
+    .border-dashed { border-style: dashed; }
+    .border-gray-200 { border-color: #e5e7eb; }
+    .border-gray-300 { border-color: #d1d5db; }
+    .border-red-500 { border-color: #ef4444; }
+    .border-orange-500 { border-color: #f97316; }
+    .border-amber-300 { border-color: #fcd34d; }
+    .border-yellow-500 { border-color: #eab308; }
+    .border-green-300 { border-color: #86efac; }
+    .border-green-500 { border-color: #22c55e; }
+    .border-teal-500 { border-color: #14b8a6; }
+    .border-blue-500 { border-color: #3b82f6; }
+    
+    /* Border Radius */
+    .rounded { border-radius: 0.25rem; }
+    .rounded-lg { border-radius: 0.5rem; }
+    .rounded-xl { border-radius: 0.75rem; }
+    .rounded-2xl { border-radius: 1rem; }
+    .rounded-full { border-radius: 9999px; }
+    
+    /* Shadows */
+    .shadow { box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); }
+    .shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+    .shadow-2xl { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); }
+    
+    /* Effects */
+    .overflow-hidden { overflow: hidden; }
+    .transition-all { transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
+    .transition-colors { transition-property: color, background-color, border-color; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
+    
+    /* Divide */
+    .divide-y > * + * { border-top-width: 1px; }
+    .divide-gray-200 > * + * { border-color: #e5e7eb; }
+    
+    /* Ring */
+    .ring-2 { box-shadow: 0 0 0 2px var(--tw-ring-color); }
+    .ring-purple-500 { --tw-ring-color: #a855f7; }
+    .ring-offset-1 { --tw-ring-offset-width: 1px; }
+    
+    /* Hover States */
+    .hover\:bg-gray-50:hover { background-color: #f9fafb; }
+    .hover\:bg-gray-200:hover { background-color: #e5e7eb; }
+    .hover\:bg-gray-300:hover { background-color: #d1d5db; }
+    .hover\:bg-gray-600:hover { background-color: #4b5563; }
+    .hover\:bg-gray-900:hover { background-color: #111827; }
+    .hover\:bg-purple-50:hover { background-color: #faf5ff; }
+    .hover\:bg-purple-700:hover { background-color: #7e22ce; }
+    .hover\:bg-green-700:hover { background-color: #15803d; }
+    .hover\:bg-red-700:hover { background-color: #b91c1c; }
+    .hover\:from-purple-700:hover { --tw-gradient-from: #7e22ce; }
+    .hover\:to-indigo-700:hover { --tw-gradient-to: #4338ca; }
+    .hover\:text-gray-700:hover { color: #374151; }
+    .hover\:text-green-800:hover { color: #166534; }
+    .hover\:border-purple-300:hover { border-color: #d8b4fe; }
+    .hover\:shadow-xl:hover { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+    
+    /* Focus States */
+    .focus\:outline-none:focus { outline: none; }
+    .focus\:border-purple-500:focus { border-color: #a855f7; }
+    .focus\:border-gray-800:focus { border-color: #1f2937; }
+    .focus\:border-red-400:focus { border-color: #f87171; }
+    .focus\:border-orange-400:focus { border-color: #fb923c; }
+    .focus\:border-yellow-400:focus { border-color: #facc15; }
+    .focus\:border-green-400:focus { border-color: #4ade80; }
+    .focus\:border-teal-400:focus { border-color: #2dd4bf; }
+    .focus\:border-blue-400:focus { border-color: #60a5fa; }
+    
+    /* Disabled States */
+    .disabled\:bg-gray-400:disabled { background-color: #9ca3af; }
+    .disabled\:opacity-50:disabled { opacity: 0.5; }
+    
+    /* Responsive */
+    @media (min-width: 640px) {
+      .sm\:inline { display: inline; }
+    }
+    
+    /* Print Styles - PDF Generation */
+    .header { text-align: center; border-bottom: 2px solid #1e40af; padding-bottom: 20px; margin-bottom: 30px; }
+    .header h1 { color: #1e40af; margin-bottom: 10px; }
+    .info-box { background: #f3f4f6; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+    .info-row { display: flex; justify-content: space-between; margin: 5px 0; }
+    .partie { background: #1e40af; color: white; padding: 10px 15px; margin: 25px 0 15px; font-weight: bold; }
+    .question { margin: 15px 0; padding: 15px; border: 1px solid #d1d5db; border-radius: 8px; }
+    .question-header { font-weight: bold; margin-bottom: 10px; color: #1e40af; }
+    .option { padding: 8px 12px; margin: 4px 0; border-radius: 4px; border: 1px solid #e5e7eb; }
+    .selected { background: #dbeafe; border: 2px solid #1e40af; font-weight: bold; }
+    .not-selected { background: #f9fafb; }
+    .correct { background: #dcfce7 !important; border: 2px solid #22c55e !important; }
+    .incorrect { background: #fee2e2 !important; border: 2px solid #ef4444 !important; }
+    .footer { margin-top: 40px; text-align: center; font-size: 12px; color: #6b7280; border-top: 1px solid #d1d5db; padding-top: 20px; }
+    .data-section { background: #fef3c7; border: 2px solid #f59e0b; padding: 15px; margin: 20px 0; border-radius: 8px; font-family: monospace; font-size: 10px; word-break: break-all; }
+    .confidential { background: #f3e8ff; border: 2px solid #a855f7; padding: 15px; margin: 20px 0; border-radius: 8px; }
+    .score-box { background: #eff6ff; border: 2px solid #3b82f6; padding: 20px; margin: 20px 0; border-radius: 8px; text-align: center; }
+    .partie-score { float: right; font-size: 0.9em; }
+    .points { color: #6b7280; font-size: 0.8em; }
+    
+    @media print { 
+      body { margin: 20px; } 
+      .question { page-break-inside: avoid; } 
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+  <div id="app"></div>
+
+  <script>
+    // QUESTIONS
+    const questions = [
+      // PARTIE 1 : HISTOIRE DES STYLES ARCHITECTURAUX
+      { id: 1, partie: "Partie 1 : Histoire des Styles Architecturaux", question: "Quelle période correspond à l'Art Roman ?", options: ["800-1000", "1000-1125", "1125-1450", "1450-1610"], correctIndex: 1, points: 1 },
+      { id: 2, partie: "Partie 1 : Histoire des Styles Architecturaux", question: "Quelles sont les caractéristiques de l'Art Roman ?", options: ["Arcs brisés et grandes verrières", "Architecture massive, murs épais, arcs en plein cintre", "Formes courbes et jeux de lumière", "Lignes sinueuses inspirées de la nature"], correctIndex: 1, points: 1 },
+      { id: 3, partie: "Partie 1 : Histoire des Styles Architecturaux", question: "L'Art Gothique (1125-1450) met l'accent sur :", options: ["L'architecture massive et les ouvertures limitées", "La lumière divine, les arcs brisés et les voûtes sur croisée d'ogives", "Les formes géométriques simples", "Le béton brut et les masses monolithiques"], correctIndex: 1, points: 1 },
+      { id: 4, partie: "Partie 1 : Histoire des Styles Architecturaux", question: "La Renaissance (1450-1610) se caractérise par :", options: ["Le rejet de l'harmonie et des proportions", "La redécouverte des canons antiques, l'harmonie et la symétrie parfaite", "L'exubérance et les formes courbes", "Les formes fragmentées défiant la gravité"], correctIndex: 1, points: 1 },
+      { id: 5, partie: "Partie 1 : Histoire des Styles Architecturaux", question: "Le style Baroque (XVIIe siècle) est né en :", options: ["France", "Angleterre", "Italie", "Allemagne"], correctIndex: 2, points: 1 },
+      { id: 6, partie: "Partie 1 : Histoire des Styles Architecturaux", question: "Le Classicisme français est caractérisé par :", options: ["L'exubérance et le mouvement", "La rigueur, la symétrie, la monumentalité et l'expression du pouvoir royal", "Les motifs végétaux et les couleurs pastel", "Les formes fragmentées"], correctIndex: 1, points: 1 },
+      { id: 7, partie: "Partie 1 : Histoire des Styles Architecturaux", question: "Le style Rococo (début XVIIIe) utilise :", options: ["Des formes géométriques strictes", "Des motifs végétaux, coquillages, courbes gracieuses et couleurs pastel", "Du béton brut", "Des lignes droites et austères"], correctIndex: 1, points: 1 },
+      { id: 8, partie: "Partie 1 : Histoire des Styles Architecturaux", question: "Le Néoclassicisme (fin XVIIIe) privilégie :", options: ["Les ornements exubérants", "Les formes géométriques simples et les éléments gréco-romains", "Les formes courbes et dynamiques", "Les motifs floraux"], correctIndex: 1, points: 1 },
+      { id: 9, partie: "Partie 1 : Histoire des Styles Architecturaux", question: "Le style Haussmannien (1853-1870) est emblématique de :", options: ["Lyon", "Marseille", "Paris", "Bordeaux"], correctIndex: 2, points: 1 },
+      { id: 10, partie: "Partie 1 : Histoire des Styles Architecturaux", question: "L'Art Nouveau (1890-1910) se caractérise par :", options: ["Des formes géométriques strictes", "Des lignes sinueuses inspirées de la nature et des motifs floraux", "L'utilisation du béton brut", "La rigueur et l'austérité"], correctIndex: 1, points: 1 },
+      { id: 11, partie: "Partie 1 : Histoire des Styles Architecturaux", question: "L'Art Déco (1920-1940) utilise :", options: ["Des formes organiques et végétales", "Des formes géométriques, des matériaux luxueux et célèbre la machine", "Uniquement des matériaux traditionnels", "Des couleurs pastel exclusivement"], correctIndex: 1, points: 1 },
+      { id: 12, partie: "Partie 1 : Histoire des Styles Architecturaux", question: "Le Modernisme (1920-1970) a été établi par :", options: ["Gustave Eiffel et Haussmann", "Le Bauhaus et Le Corbusier", "Les artistes de la Renaissance", "Les architectes gothiques"], correctIndex: 1, points: 1 },
+      { id: 13, partie: "Partie 1 : Histoire des Styles Architecturaux", question: "Le mantra du Modernisme est :", options: ["L'ornement est un crime", "La forme suit la fonction", "Moins c'est plus", "Retour à la nature"], correctIndex: 1, points: 1 },
+      { id: 14, partie: "Partie 1 : Histoire des Styles Architecturaux", question: "Le Brutalisme se caractérise par :", options: ["Les couleurs pastel et les courbes", "L'utilisation du béton brut et des masses monolithiques", "Les ornements luxueux", "Les formes légères et aériennes"], correctIndex: 1, points: 1 },
+      { id: 15, partie: "Partie 1 : Histoire des Styles Architecturaux", question: "Le Postmodernisme (1970 à nos jours) est une réaction au :", options: ["Gothique", "Baroque", "Modernisme", "Classicisme"], correctIndex: 2, points: 1 },
+      { id: 16, partie: "Partie 1 : Histoire des Styles Architecturaux", question: "Le Déconstructivisme se caractérise par :", options: ["La symétrie parfaite", "Des formes fragmentées et des géométries complexes défiant la gravité", "L'utilisation exclusive de bois", "Des formes classiques"], correctIndex: 1, points: 1 },
+      { id: 17, partie: "Partie 1 : Histoire des Styles Architecturaux", question: "L'Architecture durable vise :", options: ["À maximiser la consommation d'énergie", "L'harmonie entre le bâtiment et la nature", "À ignorer les préoccupations environnementales", "À reproduire les styles anciens"], correctIndex: 1, points: 1 },
+      { id: 18, partie: "Partie 1 : Histoire des Styles Architecturaux", question: "Le style Empire (XIXe siècle) s'inspire de :", options: ["L'art médiéval", "L'Égypte et Rome sous Napoléon Ier", "L'art asiatique", "L'art préhistorique"], correctIndex: 1, points: 1 },
+
+      // PARTIE 2 : LA MAQUETTE NUMÉRIQUE
+      { id: 19, partie: "Partie 2 : La Maquette Numérique", question: "Qu'est-ce qu'une maquette numérique ?", options: ["Un simple dessin 2D", "Une représentation virtuelle en 3D centralisant informations géométriques et techniques", "Une photo du bâtiment", "Un plan papier numérisé"], correctIndex: 1, points: 1 },
+      { id: 20, partie: "Partie 2 : La Maquette Numérique", question: "La maquette numérique permet :", options: ["Uniquement de voir le bâtiment en 2D", "Une visualisation 3D sous tous les angles avant la construction", "De remplacer les ouvriers sur le chantier", "D'imprimer directement le bâtiment"], correctIndex: 1, points: 1 },
+      { id: 21, partie: "Partie 2 : La Maquette Numérique", question: "La centralisation des données dans la maquette numérique permet de :", options: ["Créer des silos d'information", "Éliminer les silos d'information et créer une base de données unique", "Complexifier la communication", "Limiter l'accès aux informations"], correctIndex: 1, points: 1 },
+      { id: 22, partie: "Partie 2 : La Maquette Numérique", question: "La détection précoce des erreurs grâce à la maquette numérique permet de :", options: ["Augmenter les coûts", "Réduire les coûts et les retards", "Ralentir le projet", "Ignorer les conflits"], correctIndex: 1, points: 1 },
+      { id: 23, partie: "Partie 2 : La Maquette Numérique", question: "Que signifie 'NI' dans le contexte BIM ?", options: ["Niveau d'Intégration", "Niveau d'Information", "Norme Internationale", "Numéro d'Identification"], correctIndex: 1, points: 1 },
+      { id: 24, partie: "Partie 2 : La Maquette Numérique", question: "Que signifie 'ND' dans le contexte BIM ?", options: ["Niveau de Détail", "Norme de Dessin", "Numéro de Dossier", "Note de Design"], correctIndex: 0, points: 1 },
+      { id: 25, partie: "Partie 2 : La Maquette Numérique", question: "L'arborescence spatiale dans une maquette numérique est :", options: ["Une décoration végétale", "Une structure hiérarchique organisant le contenu des maquettes", "Un type de matériau", "Un logiciel de dessin"], correctIndex: 1, points: 1 },
+      { id: 26, partie: "Partie 2 : La Maquette Numérique", question: "Quelle est la différence principale entre le dessin 2D et la maquette numérique ?", options: ["Le dessin 2D est plus précis", "La maquette numérique intègre des données métiers et permet des modifications automatiques", "Il n'y a aucune différence", "Le dessin 2D est plus récent"], correctIndex: 1, points: 1 },
+      { id: 27, partie: "Partie 2 : La Maquette Numérique", question: "La génération automatique à partir de la maquette numérique produit :", options: ["Uniquement des images", "Des plans 2D, des quantitatifs et des plannings", "Des matériaux de construction", "Des ouvriers virtuels"], correctIndex: 1, points: 1 },
+
+      // PARTIE 3 : LE CCTP
+      { id: 28, partie: "Partie 3 : Le CCTP", question: "Que signifie CCTP ?", options: ["Cahier des Charges Techniques Préliminaires", "Cahier des Clauses Techniques Particulières", "Contrat de Construction Technique Principal", "Code de Construction et Travaux Publics"], correctIndex: 1, points: 1 },
+      { id: 29, partie: "Partie 3 : Le CCTP", question: "Le CCTP est un document :", options: ["Facultatif", "Contractuel fondamental", "Uniquement informatif", "Provisoire"], correctIndex: 1, points: 1 },
+      { id: 30, partie: "Partie 3 : Le CCTP", question: "Les trois piliers d'un CCTP efficace sont :", options: ["Budget, planning, personnel", "Description des ouvrages, localisation, référence aux plans", "Matériaux, outils, main d'œuvre", "Conception, réalisation, maintenance"], correctIndex: 1, points: 2 },
+      { id: 31, partie: "Partie 3 : Le CCTP", question: "La description des ouvrages dans le CCTP doit inclure :", options: ["Uniquement le prix", "Nature des travaux, caractéristiques des matériaux, méthodes de mise en œuvre, performances attendues", "Seulement les plans", "Le nom des ouvriers"], correctIndex: 1, points: 1 },
+      { id: 32, partie: "Partie 3 : Le CCTP", question: "Les normes référencées dans le CCTP incluent généralement :", options: ["Les normes ISO uniquement", "DTU et NF", "Aucune norme", "Les normes américaines uniquement"], correctIndex: 1, points: 1 },
+      { id: 33, partie: "Partie 3 : Le CCTP", question: "La localisation des ouvrages dans le CCTP doit mentionner :", options: ["Uniquement la ville", "L'emplacement exact, les références techniques et les contraintes du site", "Seulement le pays", "Le nom du propriétaire"], correctIndex: 1, points: 1 },
+      { id: 34, partie: "Partie 3 : Le CCTP", question: "Les classes de précision pour la géolocalisation des réseaux souterrains sont :", options: ["1, 2, 3", "A, B, C", "Rouge, Vert, Bleu", "Haut, Moyen, Bas"], correctIndex: 1, points: 1 },
+      { id: 35, partie: "Partie 3 : Le CCTP", question: "Les plans et documents graphiques dans le CCTP doivent être :", options: ["Anonymes", "Nommés, datés et référencés clairement", "Sans date", "Non numérotés"], correctIndex: 1, points: 1 },
+      { id: 36, partie: "Partie 3 : Le CCTP", question: "Le CCTP vise à garantir :", options: ["Les retards de chantier", "La bonne exécution des travaux", "Les conflits entre entreprises", "L'augmentation des coûts"], correctIndex: 1, points: 1 },
+
+      // PARTIE 4 : BIM ET BIMVISION
+      { id: 37, partie: "Partie 4 : BIM et BIMvision", question: "Que signifie BIM ?", options: ["Building Information Modeling", "Bureau d'Information et de Modélisation", "Bâtiment Intelligent Moderne", "Base d'Information des Matériaux"], correctIndex: 0, points: 1 },
+      { id: 38, partie: "Partie 4 : BIM et BIMvision", question: "Dans une maquette numérique, chaque élément (mur, porte, fenêtre) est traité comme :", options: ["Un simple dessin", "Un objet intelligent contenant des données", "Une image figée", "Un texte"], correctIndex: 1, points: 1 },
+      { id: 39, partie: "Partie 4 : BIM et BIMvision", question: "Le format IFC (Industry Foundation Classes) permet :", options: ["De bloquer les échanges de données", "L'interopérabilité entre différents logiciels BIM", "De créer des images uniquement", "De remplacer les architectes"], correctIndex: 1, points: 1 },
+      { id: 40, partie: "Partie 4 : BIM et BIMvision", question: "BIMvision est :", options: ["Un logiciel de modélisation payant", "Un logiciel gratuit de visualisation des maquettes IFC", "Un format de fichier", "Un type de béton"], correctIndex: 1, points: 1 },
+      { id: 41, partie: "Partie 4 : BIM et BIMvision", question: "Les fonctionnalités de BIMvision incluent :", options: ["Uniquement l'impression", "Navigation 3D, affichage d'informations et outils d'analyse", "La construction automatique", "Le paiement des factures"], correctIndex: 1, points: 1 },
+      { id: 42, partie: "Partie 4 : BIM et BIMvision", question: "Le BIM facilite la collaboration entre :", options: ["Uniquement les architectes", "Architectes, ingénieurs, entreprises et maîtres d'ouvrage", "Uniquement les ouvriers", "Personne"], correctIndex: 1, points: 1 },
+      { id: 43, partie: "Partie 4 : BIM et BIMvision", question: "Le processus BIM couvre les phases de :", options: ["Uniquement la conception", "Conception, exécution, exploitation et maintenance", "Uniquement la démolition", "Aucune phase"], correctIndex: 1, points: 1 },
+      { id: 44, partie: "Partie 4 : BIM et BIMvision", question: "Dans un contexte pédagogique, BIMvision permet de :", options: ["Remplacer les cours", "Visualiser les couches d'un projet et analyser la structure", "Construire des bâtiments réels", "Supprimer les examens"], correctIndex: 1, points: 1 },
+      { id: 45, partie: "Partie 4 : BIM et BIMvision", question: "Les logiciels de modélisation BIM courants incluent :", options: ["Word et Excel", "Revit et Archicad", "Photoshop et Illustrator", "Chrome et Firefox"], correctIndex: 1, points: 1 },
+
+      // PARTIE 5 : ACTE DE CONSTRUIRE - INTERVENANTS ET MISSIONS
+      { id: 46, partie: "Partie 5 : Intervenants et Missions", question: "Quelles sont les trois grandes phases d'un projet de construction ?", options: ["Début, milieu, fin", "Programmation, Conception, Réalisation", "Achat, vente, location", "Matin, après-midi, soir"], correctIndex: 1, points: 1 },
+      { id: 47, partie: "Partie 5 : Intervenants et Missions", question: "Qui intervient principalement en phase de Programmation ?", options: ["Les entreprises de construction", "AMO et MOA", "Uniquement le MOE", "Les ouvriers"], correctIndex: 1, points: 1 },
+      { id: 48, partie: "Partie 5 : Intervenants et Missions", question: "Que signifie MOE ?", options: ["Maître d'Ouvrage Exécutant", "Maître d'Œuvre", "Mission d'Organisation des Entreprises", "Module d'Opération Externe"], correctIndex: 1, points: 1 },
+      { id: 49, partie: "Partie 5 : Intervenants et Missions", question: "La mission FAI correspond à :", options: ["Finalisation des Achats Internes", "Étude de Faisabilité", "Formation des Apprentis Ingénieurs", "Facturation des Articles Importés"], correctIndex: 1, points: 1 },
+      { id: 50, partie: "Partie 5 : Intervenants et Missions", question: "Que signifie ESQ dans les missions de maîtrise d'œuvre ?", options: ["Étude de Sécurité et Qualité", "Esquisse", "Évaluation des Structures de Qualité", "Examen des Sites et Quartiers"], correctIndex: 1, points: 1 },
+      { id: 51, partie: "Partie 5 : Intervenants et Missions", question: "L'AVP (Avant-Projet) comprend :", options: ["Uniquement l'APD", "APS et APD", "Seulement les plans d'exécution", "La réception des travaux"], correctIndex: 1, points: 1 },
+      { id: 52, partie: "Partie 5 : Intervenants et Missions", question: "La mission PRO (Projet) produit notamment :", options: ["Uniquement des croquis", "Plans ARC, STR, CVC, planning et CCTP", "Des publicités", "Des photos du chantier"], correctIndex: 1, points: 1 },
+      { id: 53, partie: "Partie 5 : Intervenants et Missions", question: "Le DCE (Dossier de Consultation des Entreprises) est élaboré à quelle étape ?", options: ["Avant l'esquisse", "Après l'AO (Appel d'Offres)", "Pendant la phase de réalisation", "À la réception"], correctIndex: 1, points: 1 },
+      { id: 54, partie: "Partie 5 : Intervenants et Missions", question: "La mission EXE correspond à :", options: ["L'examen des coûts", "Les études d'exécution", "L'expertise externe", "L'exclusion des entreprises"], correctIndex: 1, points: 1 },
+      { id: 55, partie: "Partie 5 : Intervenants et Missions", question: "La mission VISA consiste à :", options: ["Obtenir un visa de voyage", "Valider les documents d'exécution des entreprises", "Visiter le chantier", "Viser les objectifs"], correctIndex: 1, points: 1 },
+      { id: 56, partie: "Partie 5 : Intervenants et Missions", question: "La mission DET signifie :", options: ["Détail des Équipements Techniques", "Direction de l'Exécution des Travaux", "Document d'Étude Technique", "Délai d'Exécution Total"], correctIndex: 1, points: 1 },
+      { id: 57, partie: "Partie 5 : Intervenants et Missions", question: "L'OPR (Opérations Préalables à la Réception) intervient :", options: ["Au début du projet", "Juste avant la réception finale", "Pendant la conception", "Après la démolition"], correctIndex: 1, points: 1 },
+      { id: 58, partie: "Partie 5 : Intervenants et Missions", question: "Le PC (Permis de Construire) est déposé à quelle phase ?", options: ["Programmation", "Conception (après APD)", "Réalisation", "Après les travaux"], correctIndex: 1, points: 1 },
+      { id: 59, partie: "Partie 5 : Intervenants et Missions", question: "Les entreprises de construction interviennent principalement en phase de :", options: ["Programmation", "Conception", "Réalisation", "Étude de faisabilité"], correctIndex: 2, points: 1 },
+      { id: 60, partie: "Partie 5 : Intervenants et Missions", question: "Le MOE (Maître d'Œuvre) comprend généralement :", options: ["Uniquement l'architecte", "Architecte, BET, économiste", "Uniquement les entreprises", "Le maire de la ville"], correctIndex: 1, points: 1 },
+
+      // PARTIE 6 : ANALYSE CCTP - PROJET ÉCOLE FLEURANCE
+      { id: 61, partie: "Partie 6 : Analyse CCTP - École Fleurance", question: "Où est situé le projet de l'École Élémentaire Fleurance ?", options: ["Lyon - Rhône", "Toulouse - ZAC Saint Martin du Touch", "Bordeaux - Centre ville", "Marseille - Vieux Port"], correctIndex: 1, points: 1 },
+      { id: 62, partie: "Partie 6 : Analyse CCTP - École Fleurance", question: "Le lot n°01 du CCTP concerne :", options: ["La plomberie et les sanitaires", "L'électricité", "Les fondations et le gros œuvre", "La peinture"], correctIndex: 2, points: 1 },
+      { id: 63, partie: "Partie 6 : Analyse CCTP - École Fleurance", question: "Quels sont les bâtiments concernés par le projet ?", options: ["Uniquement le bâtiment principal", "Bâtiment principal, Salle Plurivalente, Local de stockage", "Gymnase et piscine", "Parking et restaurant"], correctIndex: 1, points: 1 },
+      { id: 64, partie: "Partie 6 : Analyse CCTP - École Fleurance", question: "Quelle est la catégorie de durée d'utilisation du bâtiment (Eurocode 0) ?", options: ["10 ans", "25 ans", "50 ans", "100 ans"], correctIndex: 2, points: 1 },
+      { id: 65, partie: "Partie 6 : Analyse CCTP - École Fleurance", question: "Quelle est la classe structurale recommandée pour ce bâtiment ?", options: ["S1", "S2", "S3", "S4"], correctIndex: 3, points: 1 },
+      { id: 66, partie: "Partie 6 : Analyse CCTP - École Fleurance", question: "Dans quelle zone de vent se situe le projet selon l'Eurocode 1 ?", options: ["Région 1 (vb,0 = 22 m/s)", "Région 2 (vb,0 = 24 m/s)", "Région 3 (vb,0 = 26 m/s)", "Région 4 (vb,0 = 28 m/s)"], correctIndex: 0, points: 1 },
+      { id: 67, partie: "Partie 6 : Analyse CCTP - École Fleurance", question: "La catégorie de terrain du projet est :", options: ["Catégorie I (mer, lacs)", "Catégorie II (rase campagne)", "Catégorie IIIb (zone urbanisée)", "Catégorie IV (zone urbaine dense)"], correctIndex: 2, points: 1 },
+      { id: 68, partie: "Partie 6 : Analyse CCTP - École Fleurance", question: "Quelle est la charge de neige caractéristique sur le sol (région A2) ?", options: ["30 daN/m²", "45 daN/m²", "60 daN/m²", "75 daN/m²"], correctIndex: 1, points: 1 },
+      { id: 69, partie: "Partie 6 : Analyse CCTP - École Fleurance", question: "Dans quelle zone sismique se situe le projet ?", options: ["Zone 1 (très faible)", "Zone 2 (faible)", "Zone 3 (modérée)", "Zone 4 (moyenne)"], correctIndex: 0, points: 1 },
+      { id: 70, partie: "Partie 6 : Analyse CCTP - École Fleurance", question: "Quelle est la catégorie d'importance sismique d'une école ?", options: ["Catégorie I", "Catégorie II", "Catégorie III", "Catégorie IV"], correctIndex: 2, points: 1 },
+      { id: 71, partie: "Partie 6 : Analyse CCTP - École Fleurance", question: "Le classement ERP de l'établissement est :", options: ["1ère catégorie - Type U", "2ème catégorie - Type L", "3ème catégorie - Types R et N", "4ème catégorie - Type M"], correctIndex: 2, points: 1 },
+      { id: 72, partie: "Partie 6 : Analyse CCTP - École Fleurance", question: "La stabilité au feu de la structure principale est :", options: ["REI 15", "REI 30", "REI 60", "REI 120"], correctIndex: 1, points: 1 },
+      { id: 73, partie: "Partie 6 : Analyse CCTP - École Fleurance", question: "Les locaux à risques importants (chaufferie, local containers) nécessitent une stabilité :", options: ["REI 30", "REI 60", "REI 90", "REI 120"], correctIndex: 3, points: 1 },
+      { id: 74, partie: "Partie 6 : Analyse CCTP - École Fleurance", question: "Quel type de fondations est prévu pour le bâtiment principal ?", options: ["Fondations superficielles (semelles)", "Fondations profondes (pieux)", "Radier général", "Micropieux"], correctIndex: 1, points: 1 },
+      { id: 75, partie: "Partie 6 : Analyse CCTP - École Fleurance", question: "Quel type de fondations est prévu pour la Salle Plurivalente ?", options: ["Fondations profondes (pieux)", "Fondations superficielles (semelles)", "Puits", "Paroi moulée"], correctIndex: 1, points: 1 },
+      { id: 76, partie: "Partie 6 : Analyse CCTP - École Fleurance", question: "Quelle est la classe de béton pour les fondations et massifs ?", options: ["C16/20", "C25/30", "C30/37", "C40/50"], correctIndex: 2, points: 1 },
+      { id: 77, partie: "Partie 6 : Analyse CCTP - École Fleurance", question: "Quelle est la classe de béton pour le béton de propreté ?", options: ["C16/20", "C25/30", "C30/37", "C40/50"], correctIndex: 0, points: 1 },
+      { id: 78, partie: "Partie 6 : Analyse CCTP - École Fleurance", question: "Quelle est l'épaisseur minimale du dallage ?", options: ["10 cm", "12 cm", "15 cm", "20 cm"], correctIndex: 2, points: 1 },
+      { id: 79, partie: "Partie 6 : Analyse CCTP - École Fleurance", question: "Quel module de réaction de sol est exigé pour le dallage ?", options: ["30 MPA/m", "40 MPA/m", "50 MPA/m", "60 MPA/m"], correctIndex: 2, points: 1 },
+      { id: 80, partie: "Partie 6 : Analyse CCTP - École Fleurance", question: "La charge d'exploitation pour les salles de classe est de :", options: ["150 daN/m²", "250 daN/m²", "350 daN/m²", "500 daN/m²"], correctIndex: 1, points: 1 },
+      { id: 81, partie: "Partie 6 : Analyse CCTP - École Fleurance", question: "La charge d'exploitation pour le réfectoire est de :", options: ["250 daN/m²", "350 daN/m²", "400 daN/m²", "500 daN/m²"], correctIndex: 1, points: 1 },
+      { id: 82, partie: "Partie 6 : Analyse CCTP - École Fleurance", question: "La charge d'exploitation pour les locaux techniques est de :", options: ["250 daN/m²", "350 daN/m²", "400 daN/m²", "500 daN/m²"], correctIndex: 3, points: 1 },
+      { id: 83, partie: "Partie 6 : Analyse CCTP - École Fleurance", question: "Que signifie PAQ dans le contexte du chantier ?", options: ["Plan d'Aménagement Qualifié", "Plan d'Assurance Qualité", "Programme d'Actions Qualité", "Procédure d'Acceptation Qualité"], correctIndex: 1, points: 1 },
+      { id: 84, partie: "Partie 6 : Analyse CCTP - École Fleurance", question: "Un 'point d'arrêt' dans le PAQ signifie :", options: ["La fin définitive des travaux", "Un point critique nécessitant l'accord du Maître d'œuvre pour continuer", "Une pause déjeuner obligatoire", "L'arrêt du chantier pour intempéries"], correctIndex: 1, points: 1 },
+      { id: 85, partie: "Partie 6 : Analyse CCTP - École Fleurance", question: "Quelle est la tolérance d'implantation des ouvrages ?", options: ["+/- 5 mm", "+/- 10 mm", "+/- 15 mm", "+/- 20 mm"], correctIndex: 1, points: 1 },
+      { id: 86, partie: "Partie 6 : Analyse CCTP - École Fleurance", question: "Quelle fraction des pieux doit être auscultée par mesure sonique ?", options: ["1 pieu sur 5", "1 pieu sur 10", "1 pieu sur 20", "Tous les pieux"], correctIndex: 1, points: 1 },
+      { id: 87, partie: "Partie 6 : Analyse CCTP - École Fleurance", question: "Le contreventement du bâtiment principal est assuré par :", options: ["Des portiques métalliques", "Des voiles en béton armé dans les deux directions", "Des croix de Saint-André", "Des tirants"], correctIndex: 1, points: 1 },
+      { id: 88, partie: "Partie 6 : Analyse CCTP - École Fleurance", question: "Le DOE (Dossier des Ouvrages Exécutés) doit être remis :", options: ["Au début du chantier", "Avant la demande de réception des ouvrages", "Après la garantie décennale", "Pendant les fondations"], correctIndex: 1, points: 1 },
+      { id: 89, partie: "Partie 6 : Analyse CCTP - École Fleurance", question: "La masse volumique du béton armé pour les calculs est de :", options: ["22 kN/m³", "24 kN/m³", "25 kN/m³", "27 kN/m³"], correctIndex: 2, points: 1 },
+      { id: 90, partie: "Partie 6 : Analyse CCTP - École Fleurance", question: "Le délai minimum entre le visa des études et l'exécution des travaux est de :", options: ["10 jours", "15 jours", "20 jours", "30 jours"], correctIndex: 2, points: 1 },
+
+      // PARTIE 7 : ANALYSE CCTP - STRUCTURE BOIS ET ENVELOPPE
+      { id: 91, partie: "Partie 7 : Structure Bois et Enveloppe", question: "Quel lot est responsable de la structure bois du bâtiment ?", options: ["Lot 01 - Gros œuvre", "Lot 02 - VRD", "Lot 03 - Structure bois-Enveloppe-Couverture zinc", "Lot 04 - Charpente métallique"], correctIndex: 2, points: 1 },
+      { id: 92, partie: "Partie 7 : Structure Bois et Enveloppe", question: "Pour les réservations dans le gros œuvre, le diamètre minimum à la charge du lot 01 est de :", options: ["50 mm", "80 mm", "100 mm", "150 mm"], correctIndex: 2, points: 1 },
+      { id: 93, partie: "Partie 7 : Structure Bois et Enveloppe", question: "L'isolation extérieure des ouvrages est à la charge de :", options: ["Lot 01 - Gros œuvre", "Lot 03 - Façades/Bardage", "Lot 05 - Plâtrerie", "Lot 08 - Peinture"], correctIndex: 1, points: 1 },
+      { id: 94, partie: "Partie 7 : Structure Bois et Enveloppe", question: "La résistance thermique R minimale de l'isolation sous dallage est de :", options: ["R ≥ 2.5 m².°C/W", "R ≥ 3.5 m².°C/W", "R ≥ 4.65 m².°C/W", "R ≥ 5.5 m².°C/W"], correctIndex: 2, points: 1 },
+      { id: 95, partie: "Partie 7 : Structure Bois et Enveloppe", question: "Les joints de dilatation coupe-feu sont traités avec :", options: ["Un simple mastic", "Un cordon coupe-feu type Litafeu", "Du silicone standard", "De la mousse expansive"], correctIndex: 1, points: 1 },
+
+      // PARTIE 8 : RE2020 ET THERMIQUE DU BÂTIMENT
+      { id: 96, partie: "Partie 8 : RE2020 et Thermique", question: "La RE2020 est entrée en vigueur pour les bâtiments résidentiels le :", options: ["1er janvier 2020", "1er janvier 2021", "1er janvier 2022", "1er juillet 2022"], correctIndex: 2, points: 1 },
+      { id: 97, partie: "Partie 8 : RE2020 et Thermique", question: "Quelle réglementation la RE2020 remplace-t-elle ?", options: ["RT2005", "RT2012", "RT2015", "HPE 2009"], correctIndex: 1, points: 1 },
+      { id: 98, partie: "Partie 8 : RE2020 et Thermique", question: "L'indicateur Bbio de la RE2020 mesure :", options: ["La consommation d'énergie primaire", "Les besoins bioclimatiques du bâtiment", "L'impact carbone de la construction", "Le confort d'été"], correctIndex: 1, points: 1 },
+      { id: 99, partie: "Partie 8 : RE2020 et Thermique", question: "L'indicateur Cep de la RE2020 représente :", options: ["Les besoins bioclimatiques", "La consommation d'énergie primaire", "L'empreinte carbone", "La surface habitable"], correctIndex: 1, points: 1 },
+      { id: 100, partie: "Partie 8 : RE2020 et Thermique", question: "L'indicateur Ic construction mesure :", options: ["L'isolation thermique", "L'impact carbone des matériaux et de la construction", "La consommation électrique", "L'inertie thermique"], correctIndex: 1, points: 1 },
+      { id: 101, partie: "Partie 8 : RE2020 et Thermique", question: "L'indicateur Ic énergie mesure :", options: ["L'impact carbone lié à la consommation d'énergie", "Les besoins en chauffage", "La surface de panneaux solaires", "Le coût de l'énergie"], correctIndex: 0, points: 1 },
+      { id: 102, partie: "Partie 8 : RE2020 et Thermique", question: "L'indicateur DH (Degrés-Heures) de la RE2020 évalue :", options: ["Les besoins en chauffage", "Le confort d'été et les risques de surchauffe", "La durée de vie du bâtiment", "Les heures d'ensoleillement"], correctIndex: 1, points: 1 },
+      { id: 103, partie: "Partie 8 : RE2020 et Thermique", question: "Une nouveauté majeure de la RE2020 par rapport à la RT2012 est :", options: ["L'obligation d'isolation", "La prise en compte de l'impact carbone (ACV)", "Le calcul du Bbio", "L'étanchéité à l'air"], correctIndex: 1, points: 1 },
+      { id: 104, partie: "Partie 8 : RE2020 et Thermique", question: "ACV signifie :", options: ["Analyse du Confort Visuel", "Analyse du Cycle de Vie", "Apport de Chaleur par Ventilation", "Audit de Conformité et Vérification"], correctIndex: 1, points: 1 },
+      { id: 105, partie: "Partie 8 : RE2020 et Thermique", question: "La formule de la résistance thermique R d'une couche homogène est :", options: ["R = λ × e", "R = e / λ", "R = λ / e", "R = e × λ²"], correctIndex: 1, points: 1 },
+      { id: 106, partie: "Partie 8 : RE2020 et Thermique", question: "Dans la formule R = e / λ, que représente 'e' ?", options: ["L'énergie thermique", "L'épaisseur du matériau (en mètres)", "L'efficacité énergétique", "L'émissivité"], correctIndex: 1, points: 1 },
+      { id: 107, partie: "Partie 8 : RE2020 et Thermique", question: "Dans la formule R = e / λ, que représente 'λ' (lambda) ?", options: ["La longueur d'onde", "La conductivité thermique (W/m.K)", "La luminosité", "La largeur du mur"], correctIndex: 1, points: 1 },
+      { id: 108, partie: "Partie 8 : RE2020 et Thermique", question: "L'unité de la résistance thermique R est :", options: ["W/m.K", "W/m²", "m².K/W", "K/W"], correctIndex: 2, points: 1 },
+      { id: 109, partie: "Partie 8 : RE2020 et Thermique", question: "L'unité de la conductivité thermique λ est :", options: ["m².K/W", "W/m.K", "W/m²", "J/kg.K"], correctIndex: 1, points: 1 },
+      { id: 110, partie: "Partie 8 : RE2020 et Thermique", question: "Un matériau avec un λ faible est :", options: ["Un bon conducteur thermique", "Un bon isolant thermique", "Un matériau dense", "Un matériau réfléchissant"], correctIndex: 1, points: 1 },
+      { id: 111, partie: "Partie 8 : RE2020 et Thermique", question: "La résistance thermique totale d'une paroi multicouche est égale à :", options: ["La moyenne des R de chaque couche", "Le produit des R de chaque couche", "La somme des R de chaque couche", "Le R de la couche la plus épaisse"], correctIndex: 2, points: 1 },
+      { id: 112, partie: "Partie 8 : RE2020 et Thermique", question: "Rsi représente la résistance thermique superficielle :", options: ["Extérieure", "Intérieure", "Du sol", "De l'isolant"], correctIndex: 1, points: 1 },
+      { id: 113, partie: "Partie 8 : RE2020 et Thermique", question: "Rse représente la résistance thermique superficielle :", options: ["Intérieure", "Extérieure", "Du plafond", "Solaire"], correctIndex: 1, points: 1 },
+      { id: 114, partie: "Partie 8 : RE2020 et Thermique", question: "Pour un mur vertical, les valeurs usuelles de Rsi et Rse sont :", options: ["Rsi = 0.13 et Rse = 0.04 m².K/W", "Rsi = 0.04 et Rse = 0.13 m².K/W", "Rsi = 0.17 et Rse = 0.17 m².K/W", "Rsi = 0.25 et Rse = 0.25 m².K/W"], correctIndex: 0, points: 1 },
+      { id: 115, partie: "Partie 8 : RE2020 et Thermique", question: "Le coefficient de transmission thermique U (ou Up) est égal à :", options: ["U = R total", "U = 1 / R total", "U = R × e", "U = λ × R"], correctIndex: 1, points: 1 },
+      { id: 116, partie: "Partie 8 : RE2020 et Thermique", question: "L'unité du coefficient U est :", options: ["m².K/W", "W/m².K", "W/m.K", "K/W"], correctIndex: 1, points: 1 },
+      { id: 117, partie: "Partie 8 : RE2020 et Thermique", question: "Un mur performant doit avoir un coefficient U :", options: ["Le plus élevé possible", "Le plus faible possible", "Égal à 1", "Supérieur à 2"], correctIndex: 1, points: 1 },
+      { id: 118, partie: "Partie 8 : RE2020 et Thermique", question: "Une laine de verre (λ = 0.035 W/m.K) de 20 cm d'épaisseur a une résistance R de :", options: ["R = 0.7 m².K/W", "R = 5.71 m².K/W", "R = 0.175 m².K/W", "R = 7 m².K/W"], correctIndex: 1, points: 2 },
+      { id: 119, partie: "Partie 8 : RE2020 et Thermique", question: "Un mur en béton (λ = 1.75 W/m.K) de 20 cm d'épaisseur a une résistance R de :", options: ["R = 0.114 m².K/W", "R = 8.75 m².K/W", "R = 0.35 m².K/W", "R = 1.14 m².K/W"], correctIndex: 0, points: 2 },
+      { id: 120, partie: "Partie 8 : RE2020 et Thermique", question: "La conductivité thermique λ de la laine de roche est environ :", options: ["λ = 0.5 W/m.K", "λ = 0.035 W/m.K", "λ = 1.0 W/m.K", "λ = 0.2 W/m.K"], correctIndex: 1, points: 1 },
+      { id: 121, partie: "Partie 8 : RE2020 et Thermique", question: "La conductivité thermique λ du béton armé est environ :", options: ["λ = 0.04 W/m.K", "λ = 0.5 W/m.K", "λ = 1.75 W/m.K", "λ = 2.5 W/m.K"], correctIndex: 2, points: 1 },
+      { id: 122, partie: "Partie 8 : RE2020 et Thermique", question: "Pour un mur composé de : béton 20cm (R=0.11) + isolant 10cm (R=2.86) + plaque de plâtre (R=0.06), avec Rsi=0.13 et Rse=0.04, la résistance totale Rt est :", options: ["Rt = 2.86 m².K/W", "Rt = 3.03 m².K/W", "Rt = 3.20 m².K/W", "Rt = 0.30 m².K/W"], correctIndex: 2, points: 2 },
+      { id: 123, partie: "Partie 8 : RE2020 et Thermique", question: "Si Rt = 4 m².K/W, le coefficient U de la paroi est :", options: ["U = 4 W/m².K", "U = 0.25 W/m².K", "U = 2 W/m².K", "U = 0.5 W/m².K"], correctIndex: 1, points: 2 },
+      { id: 124, partie: "Partie 8 : RE2020 et Thermique", question: "Pour atteindre les exigences RE2020, le Up d'un mur doit généralement être inférieur à :", options: ["U < 1.0 W/m².K", "U < 0.5 W/m².K", "U < 0.2 W/m².K", "U < 2.0 W/m².K"], correctIndex: 2, points: 1 },
+      { id: 125, partie: "Partie 8 : RE2020 et Thermique", question: "Le pont thermique est :", options: ["Une zone à forte isolation", "Une zone de faiblesse où la chaleur s'échappe plus facilement", "Un système de chauffage", "Une ventilation naturelle"], correctIndex: 1, points: 1 },
+
+      // PARTIE 9 : QUESTIONS DE SYNTHÈSE
+      { id: 126, partie: "Partie 9 : Questions de Synthèse", question: "Quel style architectural utilise des arcs brisés et des voûtes sur croisée d'ogives ?", options: ["Roman", "Gothique", "Baroque", "Art Déco"], correctIndex: 1, points: 2 },
+      { id: 127, partie: "Partie 9 : Questions de Synthèse", question: "Le format standard pour l'échange de données BIM est :", options: ["PDF", "DWG", "IFC", "JPG"], correctIndex: 2, points: 2 },
+      { id: 128, partie: "Partie 9 : Questions de Synthèse", question: "Dans l'ordre chronologique des missions MOE, quelle est la séquence correcte ?", options: ["PRO → ESQ → AVP", "ESQ → AVP → PRO", "AVP → ESQ → PRO", "PRO → AVP → ESQ"], correctIndex: 1, points: 2 },
+      { id: 129, partie: "Partie 9 : Questions de Synthèse", question: "Le CCTP fait partie de quel dossier ?", options: ["Le permis de construire uniquement", "Le DCE (Dossier de Consultation des Entreprises)", "Le rapport de fin de chantier", "Le programme"], correctIndex: 1, points: 2 },
+      { id: 130, partie: "Partie 9 : Questions de Synthèse", question: "Quel mouvement architectural prône 'la forme suit la fonction' ?", options: ["Art Nouveau", "Baroque", "Modernisme", "Rococo"], correctIndex: 2, points: 2 }
+    ];
+
+    // Questions de la carte mentale
+    const carteQuestions = [
+      // Styles architecturaux
+      { id: 'cm1', label: 'Art Roman : type d\'arc =', answer: 'plein cintre', points: 0.5 },
+      { id: 'cm2', label: 'Art Gothique : type d\'arc =', answer: 'brisé', points: 0.5 },
+      { id: 'cm3', label: 'Art Gothique : type de voûte =', answer: 'croisée d\'ogives', points: 0.5 },
+      { id: 'cm4', label: 'Modernisme : matériaux principaux =', answer: 'béton acier verre', points: 0.5 },
+      { id: 'cm5', label: 'Le Corbusier est associé au ???', answer: 'modernisme', points: 0.5 },
+      { id: 'cm6', label: 'Le Bauhaus est associé au ???', answer: 'modernisme', points: 0.5 },
+      // Maquette numérique / BIM
+      { id: 'cm7', label: 'BIM =', answer: 'building information modeling', points: 0.5 },
+      { id: 'cm8', label: 'Format standard BIM =', answer: 'ifc', points: 0.5 },
+      { id: 'cm9', label: 'NI = Niveau d\'???', answer: 'information', points: 0.5 },
+      { id: 'cm10', label: 'ND = Niveau de ???', answer: 'détail', points: 0.5 },
+      { id: 'cm11', label: 'Logiciel gratuit de visualisation IFC =', answer: 'bimvision', points: 0.5 },
+      // CCTP
+      { id: 'cm12', label: 'CCTP = Cahier des Clauses ??? Particulières', answer: 'techniques', points: 0.5 },
+      { id: 'cm13', label: 'Le CCTP est un document ???', answer: 'contractuel', points: 0.5 },
+      { id: 'cm14', label: 'Normes de construction françaises =', answer: 'dtu', points: 0.5 },
+      // Intervenants
+      { id: 'cm15', label: 'MOA =', answer: 'maître d\'ouvrage', points: 0.5 },
+      { id: 'cm16', label: 'MOE =', answer: 'maître d\'œuvre', points: 0.5 },
+      { id: 'cm17', label: 'AMO =', answer: 'assistant à maîtrise d\'ouvrage', points: 0.5 },
+      { id: 'cm18', label: 'BET =', answer: 'bureau d\'études techniques', points: 0.5 },
+      // Missions
+      { id: 'cm19', label: 'ESQ =', answer: 'esquisse', points: 0.5 },
+      { id: 'cm20', label: 'AVP =', answer: 'avant-projet', points: 0.5 },
+      { id: 'cm21', label: 'APS = Avant-Projet ???', answer: 'sommaire', points: 0.5 },
+      { id: 'cm22', label: 'APD = Avant-Projet ???', answer: 'détaillé', points: 0.5 },
+      { id: 'cm23', label: 'PRO =', answer: 'projet', points: 0.5 },
+      { id: 'cm24', label: 'DCE = Dossier de ??? des Entreprises', answer: 'consultation', points: 0.5 },
+      // Projet École Fleurance • RE2020
+      { id: 'cm25', label: 'Ville du projet École Fleurance • RE2020 =', answer: 'toulouse', points: 0.5 },
+      { id: 'cm26', label: 'PAQ = Plan d\'Assurance ???', answer: 'qualité', points: 0.5 },
+      { id: 'cm27', label: 'DOE = Dossier des Ouvrages ???', answer: 'exécutés', points: 0.5 },
+      { id: 'cm28', label: 'Classe de béton fondations =', answer: 'c30/37', points: 0.5 },
+      { id: 'cm29', label: 'Zone sismique du projet =', answer: 'zone 1', points: 0.5 },
+      { id: 'cm30', label: 'ERP = Établissement Recevant du ???', answer: 'public', points: 0.5 },
+      // RE2020 et Thermique
+      { id: 'cm31', label: 'RE2020 remplace la ???', answer: 'rt2012', points: 0.5 },
+      { id: 'cm32', label: 'Bbio = Besoins ???', answer: 'bioclimatiques', points: 0.5 },
+      { id: 'cm33', label: 'Cep = Consommation d\'Énergie ???', answer: 'primaire', points: 0.5 },
+      { id: 'cm34', label: 'Ic = Impact ???', answer: 'carbone', points: 0.5 },
+      { id: 'cm35', label: 'ACV = Analyse du Cycle de ???', answer: 'vie', points: 0.5 },
+      { id: 'cm36', label: 'Formule résistance thermique R = e / ???', answer: 'lambda', points: 0.5 },
+      { id: 'cm37', label: 'Unité de R (résistance thermique) =', answer: 'm².k/w', points: 0.5 },
+      { id: 'cm38', label: 'Unité de λ (lambda) =', answer: 'w/m.k', points: 0.5 },
+      { id: 'cm39', label: 'Coefficient U = 1 / ???', answer: 'r', points: 0.5 },
+      { id: 'cm40', label: 'Un bon isolant a un λ ???', answer: 'faible', points: 0.5 }
+    ];
+
+    const PROF_CODE = "prof2024";
+
+    // STATE
+    let state = {
+      mode: 'home',
+      step: 'intro',
+      studentInfo: { nom: '', prenom: '' },
+      currentQuestion: 0,
+      answers: {},
+      carteAnswers: {},
+      timeLeft: 10800,
+      startTime: null,
+      endTime: null,
+      showConfirmSubmit: false,
+      profCode: '',
+      uploadedFiles: [],
+      correctedCopies: [],
+      showCarte: false
+    };
+
+    let timerInterval = null;
+
+    // UTILS
+    function formatTime(seconds) {
+      const h = Math.floor(seconds / 3600);
+      const m = Math.floor((seconds % 3600) / 60);
+      const s = seconds % 60;
+      return `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+    }
+
+    function getPartieColor(index) {
+      const colors = [
+        '#ef4444', // red - Partie 1 (Styles Architecturaux)
+        '#f97316', // orange - Partie 2 (Maquette Numérique)
+        '#eab308', // yellow - Partie 3 (CCTP)
+        '#22c55e', // green - Partie 4 (BIM)
+        '#14b8a6', // teal - Partie 5 (Intervenants)
+        '#6366f1', // indigo - Partie 6 (CCTP École Fleurance)
+        '#8b5cf6', // purple - Partie 7 (Structure Bois)
+        '#0ea5e9', // sky - Partie 8 (RE2020 et Thermique)
+        '#3b82f6', // blue - Partie 9 (Synthèse)
+        '#ec4899', // pink - Partie 10 (Carte mentale)
+      ];
+      return colors[index % colors.length];
+    }
+
+    function calculateScore(studentAnswers, carteAnswers = {}) {
+      let total = 0;
+      let maxScore = 0;
+      
+      questions.forEach(q => {
+        maxScore += q.points;
+        if (studentAnswers[q.id] === q.correctIndex) {
+          total += q.points;
+        }
+      });
+      
+      carteQuestions.forEach(cq => {
+        maxScore += cq.points;
+        if (carteAnswers[cq.id]) {
+          const userAnswer = normalizeText(carteAnswers[cq.id]);
+          const correctAnswer = normalizeText(cq.answer);
+          if (checkCarteAnswer(userAnswer, correctAnswer)) {
+            total += cq.points;
+          }
+        }
+      });
+      
+      return { total, maxScore };
+    }
+
+    function normalizeText(text) {
+      if (!text) return '';
+      return text.toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^a-z0-9]/g, "")
+        .trim();
+    }
+
+    function checkCarteAnswer(userAnswer, correctAnswer) {
+      if (userAnswer === correctAnswer) return true;
+      
+      const variations = {
+        'pleincintre': ['pleincintre', 'arcenpleincintre', 'demicentre'],
+        'brise': ['brise', 'arcbrise', 'ogive'],
+        'croiseedogives': ['croiseedogives', 'ogives', 'croisedogives'],
+        'betonacierverre': ['betonacierverre', 'betonacier', 'betonverre', 'acierbetonverre'],
+        'modernisme': ['modernisme', 'moderne', 'mouvement moderne'],
+        'buildinginformationmodeling': ['buildinginformationmodeling', 'bim'],
+        'ifc': ['ifc', 'industryfoundationclasses'],
+        'information': ['information', 'info'],
+        'detail': ['detail', 'det'],
+        'bimvision': ['bimvision', 'bim vision'],
+        'techniques': ['techniques', 'technique', 'tech'],
+        'contractuel': ['contractuel', 'contrat'],
+        'dtu': ['dtu', 'documentstechniquesunifies'],
+        'maitredouvrage': ['maitredouvrage', 'moa', 'maitreouvrage'],
+        'maitredoeuvre': ['maitredoeuvre', 'moe', 'maitreouvre'],
+        'assistantamaitrisedouvrage': ['assistantamaitrisedouvrage', 'amo', 'assistantmoa'],
+        'bureaudetudestechniques': ['bureaudetudestechniques', 'bet', 'bureaudetudes'],
+        'esquisse': ['esquisse', 'esq'],
+        'avantprojet': ['avantprojet', 'avp'],
+        'sommaire': ['sommaire', 'som'],
+        'detaille': ['detaille', 'det'],
+        'projet': ['projet', 'pro'],
+        'consultation': ['consultation', 'consult'],
+        'execution': ['execution', 'exe'],
+        'travaux': ['travaux', 'trav'],
+        'reception': ['reception', 'recep'],
+        'permisdeconstruire': ['permisdeconstruire', 'pc', 'permis'],
+        'faisabilite': ['faisabilite', 'fai'],
+        'programmationconceptionrealisation': ['programmationconceptionrealisation', 'progconceprealisation', 'programmation conception realisation'],
+        // École Fleurance • RE2020 variations
+        'toulouse': ['toulouse', '31', 'hautegaronne'],
+        'qualite': ['qualite', 'qual'],
+        'executes': ['executes', 'execute', 'exec'],
+        'c3037': ['c3037', 'c30/37', 'c30'],
+        'zone1': ['zone1', 'zone 1', '1', 'tresfaible'],
+        'public': ['public', 'pub'],
+        'isolation': ['isolation', 'iso'],
+        'oeuvre': ['oeuvre', 'œuvre'],
+        'bois': ['bois', 'wood'],
+        '50': ['50', 'cinquante', '50ans'],
+        // RE2020 et Thermique variations
+        'rt2012': ['rt2012', 'rt 2012', 'reglementationthermique2012'],
+        'bioclimatiques': ['bioclimatiques', 'bioclimatique', 'bio'],
+        'primaire': ['primaire', 'prim'],
+        'carbone': ['carbone', 'co2', 'carbon'],
+        'vie': ['vie', 'life'],
+        'lambda': ['lambda', 'λ', 'conductivite'],
+        'm2kw': ['m2kw', 'm².k/w', 'm2k/w', 'm²kw'],
+        'wmk': ['wmk', 'w/m.k', 'wm.k', 'w/mk'],
+        'r': ['r', 'rtotal', 'resistance'],
+        'faible': ['faible', 'bas', 'petit', 'low']
+      };
+      
+      for (const key in variations) {
+        if (variations[key].includes(correctAnswer) && variations[key].includes(userAnswer)) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    function downloadFile(content, filename) {
+      const blob = new Blob([content], { type: 'text/html' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    // GENERATE STUDENT PDF
+    function generateStudentPDF() {
+      const duration = state.startTime && state.endTime ? Math.round((state.endTime - state.startTime) / 60000) : 0;
+      
+      let htmlContent = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Copie - ${state.studentInfo.prenom} ${state.studentInfo.nom}</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; }
+    .header { text-align: center; border-bottom: 2px solid #1e40af; padding-bottom: 20px; margin-bottom: 30px; }
+    .header h1 { color: #1e40af; margin-bottom: 10px; }
+    .info-box { background: #f3f4f6; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+    .info-row { display: flex; justify-content: space-between; margin: 5px 0; }
+    .partie { background: #1e40af; color: white; padding: 10px 15px; margin: 25px 0 15px; font-weight: bold; }
+    .question { margin: 15px 0; padding: 15px; border: 1px solid #d1d5db; border-radius: 8px; page-break-inside: avoid; }
+    .question-header { font-weight: bold; margin-bottom: 10px; color: #1e40af; }
+    .option { padding: 8px 12px; margin: 4px 0; border-radius: 4px; border: 1px solid #e5e7eb; }
+    .selected { background: #dbeafe; border: 2px solid #1e40af; font-weight: bold; }
+    .not-selected { background: #f9fafb; }
+    .footer { margin-top: 40px; text-align: center; font-size: 12px; color: #6b7280; border-top: 1px solid #d1d5db; padding-top: 20px; }
+    .data-section { background: #fef3c7; border: 2px solid #f59e0b; padding: 15px; margin: 20px 0; border-radius: 8px; font-family: monospace; font-size: 10px; word-break: break-all; }
+    @media print { body { margin: 20px; } .question { page-break-inside: avoid; } }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>ÉVALUATION - SYNTHÈSE SAVOIRS S1</h1>
+    <h2>Styles Architecturaux, BIM, CCTP, Intervenants</h2>
+  </div>
+  
+  <div class="info-box">
+    <div class="info-row"><span><strong>Nom :</strong> ${state.studentInfo.nom}</span><span><strong>Prénom :</strong> ${state.studentInfo.prenom}</span></div>
+    <div class="info-row"><span><strong>Date :</strong> ${state.startTime ? new Date(state.startTime).toLocaleDateString('fr-FR') : ''}</span><span><strong>Heure début :</strong> ${state.startTime ? new Date(state.startTime).toLocaleTimeString('fr-FR') : ''}</span></div>
+    <div class="info-row"><span><strong>Heure fin :</strong> ${state.endTime ? new Date(state.endTime).toLocaleTimeString('fr-FR') : ''}</span><span><strong>Durée :</strong> ${duration} minutes</span></div>
+    <div class="info-row"><span><strong>QCM :</strong> ${Object.keys(state.answers).length} / ${questions.length}</span><span><strong>Carte mentale :</strong> ${Object.keys(state.carteAnswers).length} / ${carteQuestions.length}</span></div>
+  </div>
+`;
+
+      let currentPartie = '';
+      questions.forEach((q, idx) => {
+        if (q.partie !== currentPartie) {
+          currentPartie = q.partie;
+          htmlContent += `<div class="partie">${currentPartie}</div>`;
+        }
+        
+        const userAnswer = state.answers[q.id];
+        const notAnswered = userAnswer === undefined;
+        
+        htmlContent += `
+      <div class="question">
+        <div class="question-header">Question ${idx + 1}</div>
+        <p>${q.question}</p>
+`;
+        
+        q.options.forEach((opt, optIdx) => {
+          const isSelected = userAnswer === optIdx;
+          htmlContent += `<div class="option ${isSelected ? 'selected' : 'not-selected'}">${String.fromCharCode(65 + optIdx)}. ${opt}${isSelected ? ' ✓' : ''}</div>`;
+        });
+        
+        if (notAnswered) {
+          htmlContent += `<p style="color: #f59e0b; font-style: italic; margin-top: 10px;">⚠ Question non répondue</p>`;
+        }
+        
+        htmlContent += `</div>`;
+      });
+
+      htmlContent += `<div class="partie" style="background: #7c3aed;">Partie 7 : Carte Mentale</div>`;
+      htmlContent += `<div class="question"><div class="question-header">Réponses de la carte mentale</div>`;
+      htmlContent += `<table style="width:100%; border-collapse: collapse; font-size: 12px;">`;
+      htmlContent += `<tr style="background:#f3f4f6;"><th style="padding:8px; border:1px solid #ddd; text-align:left;">Champ</th><th style="padding:8px; border:1px solid #ddd; text-align:left;">Réponse</th></tr>`;
+      
+      carteQuestions.forEach(cq => {
+        const answer = state.carteAnswers[cq.id] || '<em style="color:#f59e0b;">Non répondu</em>';
+        htmlContent += `<tr><td style="padding:6px; border:1px solid #ddd;">${cq.label}</td><td style="padding:6px; border:1px solid #ddd;">${answer}</td></tr>`;
+      });
+      
+      htmlContent += `</table></div>`;
+
+      const copyData = {
+        nom: state.studentInfo.nom,
+        prenom: state.studentInfo.prenom,
+        answers: state.answers,
+        carteAnswers: state.carteAnswers,
+        startTime: state.startTime ? state.startTime.toISOString() : null,
+        endTime: state.endTime ? state.endTime.toISOString() : null
+      };
+      const encodedData = btoa(unescape(encodeURIComponent(JSON.stringify(copyData))));
+
+      htmlContent += `
+  <div class="data-section">
+    <strong>📋 Code de correction (à transmettre à l'enseignant) :</strong><br>
+    <code id="copyData">${encodedData}</code>
+  </div>
+
+  <div class="footer">
+    <p>Évaluation Synthèse Savoirs S1</p>
+    <p>Document généré le ${new Date().toLocaleDateString('fr-FR')} à ${new Date().toLocaleTimeString('fr-FR')}</p>
+  </div>
+</body>
+</html>`;
+
+      downloadFile(htmlContent, `Copie_${state.studentInfo.nom}_${state.studentInfo.prenom}.html`);
+    }
+
+    // TIMER
+    function startTimer() {
+      if (timerInterval) clearInterval(timerInterval);
+      timerInterval = setInterval(() => {
+        state.timeLeft--;
+        if (state.timeLeft <= 0) {
+          clearInterval(timerInterval);
+          autoSubmit();
+        }
+        render();
+      }, 1000);
+    }
+
+    function autoSubmit() {
+      state.endTime = new Date();
+      state.step = 'submitted';
+      render();
+    }
+
+    function confirmSubmit() {
+      if (timerInterval) clearInterval(timerInterval);
+      state.endTime = new Date();
+      state.step = 'submitted';
+      state.showConfirmSubmit = false;
+      render();
+    }
+
+    // START EXAM
+    function startExam() {
+      const nom = document.getElementById('nomInput').value.trim().toUpperCase();
+      const prenom = document.getElementById('prenomInput').value.trim();
+      
+      if (nom && prenom) {
+        state.studentInfo = { nom, prenom };
+        state.step = 'exam';
+        state.startTime = new Date();
+        startTimer();
+        render();
+      }
+    }
+
+    function updateCarteAnswer(id, value) {
+      state.carteAnswers[id] = value;
+    }
+
+    // PARSE STUDENT FILE
+    function parseStudentFile(content) {
+      const match = content.match(/id="copyData">([^<]+)</);
+      if (match) {
+        try {
+          const decoded = JSON.parse(decodeURIComponent(escape(atob(match[1]))));
+          return decoded;
+        } catch (e) {
+          console.error('Erreur de décodage:', e);
+        }
+      }
+      return null;
+    }
+
+    // GENERATE CORRECTION PDF
+    function generateCorrectionPDF(copy) {
+      const { total, maxScore } = calculateScore(copy.answers, copy.carteAnswers || {});
+      const note20 = (total / maxScore) * 20;
+      const duration = copy.startTime && copy.endTime ? Math.round((new Date(copy.endTime) - new Date(copy.startTime)) / 60000) : 0;
+      const parties = [...new Set(questions.map(q => q.partie))];
+      
+      let htmlContent = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Correction - ${copy.prenom} ${copy.nom}</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; }
+    .header { text-align: center; border-bottom: 2px solid #dc2626; padding-bottom: 20px; margin-bottom: 30px; }
+    .header h1 { color: #dc2626; margin-bottom: 10px; }
+    .confidential { background: #dc2626; color: white; padding: 5px 15px; display: inline-block; font-weight: bold; margin-bottom: 10px; }
+    .info-box { background: #f3f4f6; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+    .info-row { display: flex; justify-content: space-between; margin: 5px 0; }
+    .score-box { background: #1e40af; color: white; padding: 20px; text-align: center; margin: 20px 0; border-radius: 8px; }
+    .score-box h2 { margin: 0; font-size: 32px; }
+    .partie { background: #374151; color: white; padding: 10px 15px; margin: 25px 0 15px; font-weight: bold; }
+    .partie-score { float: right; }
+    .question { margin: 15px 0; padding: 15px; border-radius: 8px; page-break-inside: avoid; }
+    .correct-answer { background: #d1fae5; border: 2px solid #10b981; }
+    .incorrect-answer { background: #fee2e2; border: 2px solid #ef4444; }
+    .no-answer { background: #fef3c7; border: 2px solid #f59e0b; }
+    .question-header { font-weight: bold; margin-bottom: 10px; }
+    .points { float: right; font-weight: bold; }
+    .option { padding: 6px 10px; margin: 3px 0; border-radius: 4px; }
+    .option-correct { background: #d1fae5; border: 1px solid #10b981; }
+    .option-incorrect { background: #fee2e2; border: 1px solid #ef4444; }
+    .option-neutral { background: #f3f4f6; }
+    .footer { margin-top: 40px; text-align: center; font-size: 12px; color: #6b7280; border-top: 1px solid #d1d5db; padding-top: 20px; }
+    table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+    th, td { padding: 8px 12px; border: 1px solid #d1d5db; text-align: left; }
+    th { background: #f3f4f6; }
+    .success { color: #059669; }
+    .danger { color: #dc2626; }
+    @media print { body { margin: 20px; } }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="confidential">🔒 CORRECTION ENSEIGNANT</div>
+    <h1>ÉVALUATION SYNTHÈSE S1 - CORRECTION</h1>
+    <h2>Styles Architecturaux, BIM, CCTP, Intervenants</h2>
+  </div>
+  
+  <div class="info-box">
+    <div class="info-row"><span><strong>Élève :</strong> ${copy.nom} ${copy.prenom}</span></div>
+    <div class="info-row"><span><strong>Date :</strong> ${copy.startTime ? new Date(copy.startTime).toLocaleDateString('fr-FR') : 'N/A'}</span><span><strong>Durée :</strong> ${duration} min</span></div>
+    <div class="info-row"><span><strong>Questions répondues :</strong> ${Object.keys(copy.answers).length}/${questions.length}</span></div>
+  </div>
+  
+  <div class="score-box">
+    <h2>${note20.toFixed(2)} / 20</h2>
+    <p>${total.toFixed(1)} points sur ${maxScore}</p>
+  </div>
+
+  <h3>Résultats par partie</h3>
+  <table>
+    <tr><th>Partie</th><th>Score</th><th>%</th></tr>
+`;
+
+      parties.forEach(partie => {
+        const partieQuestions = questions.filter(q => q.partie === partie);
+        const partieScore = partieQuestions.reduce((acc, q) => 
+          acc + (copy.answers[q.id] === q.correctIndex ? q.points : 0), 0);
+        const partieMax = partieQuestions.reduce((acc, q) => acc + q.points, 0);
+        const pct = Math.round((partieScore / partieMax) * 100);
+        
+        htmlContent += `
+    <tr>
+      <td>${partie}</td>
+      <td>${partieScore}/${partieMax}</td>
+      <td class="${pct >= 50 ? 'success' : 'danger'}">${pct}%</td>
+    </tr>`;
+      });
+
+      htmlContent += `</table>`;
+
+      let currentPartie = '';
+      questions.forEach((q, idx) => {
+        if (q.partie !== currentPartie) {
+          currentPartie = q.partie;
+          const partieQuestions = questions.filter(qu => qu.partie === currentPartie);
+          const partieScore = partieQuestions.reduce((acc, qu) => 
+            acc + (copy.answers[qu.id] === qu.correctIndex ? qu.points : 0), 0);
+          const partieMax = partieQuestions.reduce((acc, qu) => acc + qu.points, 0);
+          htmlContent += `<div class="partie">${currentPartie}<span class="partie-score">${partieScore}/${partieMax}</span></div>`;
+        }
+        
+        const userAnswer = copy.answers[q.id];
+        const isCorrect = userAnswer === q.correctIndex;
+        const notAnswered = userAnswer === undefined;
+        
+        let questionClass = isCorrect ? 'correct-answer' : notAnswered ? 'no-answer' : 'incorrect-answer';
+        
+        htmlContent += `
+      <div class="question ${questionClass}">
+        <div class="question-header">
+          Q${idx + 1}
+          <span class="points" style="color: ${isCorrect ? '#059669' : '#dc2626'}">
+            ${isCorrect ? '+' + q.points : '0'}/${q.points} pt${q.points > 1 ? 's' : ''}
+          </span>
+        </div>
+        <p>${q.question}</p>
+`;
+        
+        q.options.forEach((opt, optIdx) => {
+          let optClass = 'option-neutral';
+          let marker = '';
+          if (optIdx === q.correctIndex) {
+            optClass = 'option-correct';
+            marker = ' ✓ Bonne réponse';
+          }
+          if (userAnswer === optIdx && optIdx !== q.correctIndex) {
+            optClass = 'option-incorrect';
+            marker = ' ✗ Réponse élève';
+          }
+          if (userAnswer === optIdx && optIdx === q.correctIndex) {
+            marker = ' ✓ Bonne réponse (élève)';
+          }
+          
+          htmlContent += `<div class="option ${optClass}">${String.fromCharCode(65 + optIdx)}. ${opt}${marker}</div>`;
+        });
+        
+        if (notAnswered) {
+          htmlContent += `<p style="color: #f59e0b; margin-top: 10px;"><strong>⚠ Non répondu</strong></p>`;
+        }
+        
+        htmlContent += `</div>`;
+      });
+
+      // Carte Mentale
+      const carteAnswers = copy.carteAnswers || {};
+      let carteScore = 0;
+      const carteMax = carteQuestions.reduce((acc, cq) => acc + cq.points, 0);
+      
+      htmlContent += `<div class="partie" style="background: #7c3aed;">Partie 7 : Carte Mentale<span class="partie-score" id="carteScore"></span></div>`;
+      htmlContent += `<table style="width:100%; border-collapse: collapse; font-size: 12px; margin: 15px 0;">`;
+      htmlContent += `<tr style="background:#f3f4f6;"><th style="padding:8px; border:1px solid #ddd;">Champ</th><th style="padding:8px; border:1px solid #ddd;">Réponse élève</th><th style="padding:8px; border:1px solid #ddd;">Bonne réponse</th><th style="padding:8px; border:1px solid #ddd;">Points</th></tr>`;
+      
+      carteQuestions.forEach(cq => {
+        const userAnswer = carteAnswers[cq.id] || '';
+        const userNorm = normalizeText(userAnswer);
+        const correctNorm = normalizeText(cq.answer);
+        const isCorrect = checkCarteAnswer(userNorm, correctNorm);
+        if (isCorrect && userAnswer) carteScore += cq.points;
+        
+        const bgColor = !userAnswer ? '#fef3c7' : isCorrect ? '#d1fae5' : '#fee2e2';
+        const pointsDisplay = !userAnswer ? '0' : isCorrect ? `+${cq.points}` : '0';
+        const pointsColor = isCorrect ? '#059669' : '#dc2626';
+        
+        htmlContent += `<tr style="background:${bgColor};">
+          <td style="padding:6px; border:1px solid #ddd;">${cq.label}</td>
+          <td style="padding:6px; border:1px solid #ddd;">${userAnswer || '<em style="color:#f59e0b;">-</em>'}</td>
+          <td style="padding:6px; border:1px solid #ddd; color:#059669; font-weight:bold;">${cq.answer}</td>
+          <td style="padding:6px; border:1px solid #ddd; color:${pointsColor}; font-weight:bold; text-align:center;">${pointsDisplay}</td>
+        </tr>`;
+      });
+      
+      htmlContent += `</table>`;
+      htmlContent += `<p style="text-align:right; font-weight:bold; color:#7c3aed;">Score Carte Mentale : ${carteScore}/${carteMax} points</p>`;
+
+      htmlContent += `
+  <div class="footer">
+    <p>🔒 Document confidentiel - Usage enseignant uniquement</p>
+    <p>Généré le ${new Date().toLocaleDateString('fr-FR')} à ${new Date().toLocaleTimeString('fr-FR')}</p>
+  </div>
+</body>
+</html>`;
+
+      downloadFile(htmlContent, `Correction_${copy.nom}_${copy.prenom}.html`);
+    }
+
+    // HANDLE FILE UPLOAD
+    async function handleFileUpload(event) {
+      const files = event.target.files;
+      const statusEl = document.getElementById('uploadStatus');
+      let successCount = 0;
+      
+      for (const file of files) {
+        try {
+          const content = await file.text();
+          const data = parseStudentFile(content);
+          if (data) {
+            const exists = state.correctedCopies.some(c => c.nom === data.nom && c.prenom === data.prenom);
+            if (!exists) {
+              state.correctedCopies.push(data);
+              successCount++;
+            }
+          }
+        } catch (e) {
+          console.error('Erreur lecture fichier:', e);
+        }
+      }
+      
+      if (statusEl) {
+        statusEl.textContent = `${successCount} copie(s) importée(s)`;
+      }
+      render();
+    }
+
+    // DOWNLOAD ALL CORRECTIONS
+    async function downloadAllCorrections() {
+      for (let i = 0; i < state.correctedCopies.length; i++) {
+        generateCorrectionPDF(state.correctedCopies[i]);
+        await new Promise(r => setTimeout(r, 500));
+      }
+    }
+
+    // EXPORT CSV
+    function exportCSV() {
+      let csv = 'Nom;Prénom;Note/20;Points;Max;QCM répondues;Carte répondues;Durée (min)\n';
+      state.correctedCopies.forEach(copy => {
+        const { total, maxScore } = calculateScore(copy.answers, copy.carteAnswers || {});
+        const note20 = (total / maxScore) * 20;
+        const duration = copy.startTime && copy.endTime ? Math.round((new Date(copy.endTime) - new Date(copy.startTime)) / 60000) : 0;
+        const carteCount = copy.carteAnswers ? Object.keys(copy.carteAnswers).length : 0;
+        csv += `${copy.nom};${copy.prenom};${note20.toFixed(2)};${total};${maxScore};${Object.keys(copy.answers).length}/${questions.length};${carteCount}/${carteQuestions.length};${duration}\n`;
+      });
+      
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `Notes_Synthese_S1_${new Date().toISOString().split('T')[0]}.csv`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    // RENDER
+    function render() {
+      const app = document.getElementById('app');
+      
+      // HOME
+      if (state.mode === 'home') {
+        app.innerHTML = `
+          <div class="min-h-screen bg-gradient-to-br from-purple-900 via-indigo-800 to-blue-900 flex items-center justify-center p-4">
+            <div class="bg-white rounded-2xl shadow-2xl max-w-xl w-full p-8">
+              <div class="text-center mb-8">
+                <div class="w-20 h-20 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                  </svg>
+                </div>
+                <h1 class="text-3xl font-bold text-gray-800 mb-2">Évaluation Synthèse S1</h1>
+                <p class="text-gray-500">Styles Architecturaux • BIM • CCTP • Intervenants • École Fleurance • RE2020</p>
+              </div>
+
+              <div class="space-y-4">
+                <button onclick="state.mode='student'; render();" class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-bold py-4 px-6 rounded-xl transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-3">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  </svg>
+                  Passer l'évaluation
+                </button>
+
+                <button onclick="state.mode='prof-login'; render();" class="w-full bg-gray-800 hover:bg-gray-900 text-white font-bold py-4 px-6 rounded-xl transition-all flex items-center justify-center gap-3">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                  </svg>
+                  Espace enseignant
+                </button>
+              </div>
+
+              <div class="mt-8 pt-6 border-t border-gray-200 text-center text-sm text-gray-400">
+                <p>© 2024 - Évaluation pédagogique</p>
+              </div>
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      // PROF LOGIN
+      if (state.mode === 'prof-login') {
+        app.innerHTML = `
+          <div class="min-h-screen bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center p-4">
+            <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8">
+              <div class="text-center mb-8">
+                <div class="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                  </svg>
+                </div>
+                <h2 class="text-2xl font-bold text-gray-800">Espace Enseignant</h2>
+                <p class="text-gray-500 mt-2">Entrez le code d'accès</p>
+              </div>
+
+              <div class="space-y-4">
+                <input type="password" id="profCodeInput" placeholder="Code enseignant" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-gray-800 focus:outline-none text-center text-xl tracking-widest" />
+                
+                <button onclick="
+                  const code = document.getElementById('profCodeInput').value;
+                  if (code === PROF_CODE) {
+                    state.mode = 'prof-dashboard';
+                    state.profCode = code;
+                    render();
+                  } else {
+                    alert('Code incorrect');
+                  }
+                " class="w-full bg-gray-800 hover:bg-gray-900 text-white font-bold py-3 px-6 rounded-xl transition-all">
+                  Connexion
+                </button>
+                
+                <button onclick="state.mode='home'; render();" class="w-full text-gray-500 hover:text-gray-700 py-2">
+                  ← Retour
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      // PROF DASHBOARD
+      if (state.mode === 'prof-dashboard') {
+        const moyenne = state.correctedCopies.length > 0 
+          ? (state.correctedCopies.reduce((acc, c) => {
+              const { total, maxScore } = calculateScore(c.answers, c.carteAnswers || {});
+              return acc + (total / maxScore) * 20;
+            }, 0) / state.correctedCopies.length).toFixed(2)
+          : 0;
+
+        let tableRows = '';
+        state.correctedCopies.forEach((copy, idx) => {
+          const { total, maxScore } = calculateScore(copy.answers, copy.carteAnswers || {});
+          const note20 = (total / maxScore) * 20;
+          const duration = copy.startTime && copy.endTime ? Math.round((new Date(copy.endTime) - new Date(copy.startTime)) / 60000) : 0;
+          const carteCount = copy.carteAnswers ? Object.keys(copy.carteAnswers).length : 0;
+          tableRows += `
+            <tr class="hover:bg-gray-50">
+              <td class="px-6 py-4">
+                <div class="font-medium text-gray-900">${copy.nom}</div>
+                <div class="text-gray-500">${copy.prenom}</div>
+              </td>
+              <td class="px-6 py-4 text-center">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${note20 >= 10 ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}">
+                  ${note20.toFixed(1)}/20
+                </span>
+              </td>
+              <td class="px-6 py-4 text-center text-gray-500 text-xs">
+                QCM: ${Object.keys(copy.answers).length}/${questions.length}<br>
+                Carte: ${carteCount}/${carteQuestions.length}
+              </td>
+              <td class="px-6 py-4 text-center text-gray-500">${duration} min</td>
+              <td class="px-6 py-4 text-center">
+                <button onclick="generateCorrectionPDF(state.correctedCopies[${idx}])" class="text-green-600 hover:text-green-800 font-medium">
+                  📄 PDF Corrigé
+                </button>
+              </td>
+            </tr>
+          `;
+        });
+
+        app.innerHTML = `
+          <div class="min-h-screen bg-gray-100">
+            <div class="bg-gray-800 text-white py-4 px-6">
+              <div class="max-w-6xl mx-auto flex justify-between items-center">
+                <div>
+                  <h1 class="text-xl font-bold">🔒 Espace Enseignant</h1>
+                  <p class="text-gray-400 text-sm">Évaluation Synthèse S1</p>
+                </div>
+                <button onclick="state.mode='home'; state.profCode=''; render();" class="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-sm">
+                  Déconnexion
+                </button>
+              </div>
+            </div>
+
+            <div class="max-w-6xl mx-auto p-6">
+              <div class="bg-gradient-to-r from-purple-800 to-indigo-800 rounded-xl p-6 mb-6 text-white">
+                <h3 class="font-bold text-lg mb-4">📥 Importer les copies des élèves</h3>
+                <p class="text-purple-200 mb-4">Sélectionnez les fichiers HTML exportés par les élèves pour les corriger automatiquement.</p>
+                <div class="flex gap-4 items-center">
+                  <input type="file" id="fileInput" multiple accept=".html" class="hidden" onchange="handleFileUpload(event)" />
+                  <button onclick="document.getElementById('fileInput').click();" class="bg-white text-purple-800 font-bold py-3 px-6 rounded-lg hover:bg-purple-50 transition-colors flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                    </svg>
+                    Sélectionner les fichiers élèves (.html)
+                  </button>
+                  <span class="text-purple-200" id="uploadStatus"></span>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                <div class="bg-white rounded-xl p-6 shadow">
+                  <p class="text-gray-500 text-sm">Copies importées</p>
+                  <p class="text-4xl font-bold text-purple-600">${state.correctedCopies.length}</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow">
+                  <p class="text-gray-500 text-sm">Moyenne de classe</p>
+                  <p class="text-4xl font-bold text-green-600">${moyenne}/20</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow">
+                  <p class="text-gray-500 text-sm">Actions</p>
+                  <div class="flex gap-2 mt-2">
+                    <button onclick="exportCSV();" ${state.correctedCopies.length === 0 ? 'disabled' : ''} class="flex-1 bg-purple-600 hover:bg-purple-700 disabled:bg-gray-400 text-white text-sm py-2 px-3 rounded-lg">
+                      📊 Export CSV
+                    </button>
+                    <button onclick="downloadAllCorrections();" ${state.correctedCopies.length === 0 ? 'disabled' : ''} class="flex-1 bg-green-600 hover:bg-green-700 disabled:bg-gray-400 text-white text-sm py-2 px-3 rounded-lg">
+                      📄 Tous les PDF
+                    </button>
+                    <button onclick="state.correctedCopies=[]; render();" ${state.correctedCopies.length === 0 ? 'disabled' : ''} class="bg-red-600 hover:bg-red-700 disabled:bg-gray-400 text-white text-sm py-2 px-3 rounded-lg">
+                      🗑️
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              ${state.correctedCopies.length === 0 ? `
+                <div class="bg-white rounded-xl p-12 shadow text-center">
+                  <svg class="w-16 h-16 text-gray-300 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  <p class="text-gray-500">Aucune copie importée</p>
+                  <p class="text-gray-400 text-sm mt-2">Utilisez le bouton ci-dessus pour importer les fichiers HTML des élèves</p>
+                </div>
+              ` : `
+                <div class="bg-white rounded-xl shadow overflow-hidden">
+                  <table class="w-full">
+                    <thead class="bg-gray-50">
+                      <tr>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Élève</th>
+                        <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase">Note</th>
+                        <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase">Répondu</th>
+                        <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase">Durée</th>
+                        <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                      ${tableRows}
+                    </tbody>
+                  </table>
+                </div>
+              `}
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      // STUDENT INTRO
+      if (state.mode === 'student' && state.step === 'intro') {
+        app.innerHTML = `
+          <div class="min-h-screen bg-gradient-to-br from-purple-900 via-indigo-800 to-blue-900 flex items-center justify-center p-4">
+            <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full p-8">
+              <div class="text-center mb-8">
+                <div class="w-20 h-20 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                </div>
+                <h1 class="text-3xl font-bold text-gray-800 mb-2">Évaluation Synthèse S1</h1>
+                <p class="text-gray-500">Styles Architecturaux • BIM • CCTP • Intervenants • École Fleurance • RE2020</p>
+              </div>
+
+              <div class="bg-purple-50 rounded-xl p-6 mb-6">
+                <h3 class="font-semibold text-purple-800 mb-3">📋 Informations</h3>
+                <ul class="space-y-2 text-sm text-gray-700">
+                  <li>• <strong>Durée :</strong> 3 heures (180 minutes)</li>
+                  <li>• <strong>130 questions QCM</strong> + <strong>1 carte mentale</strong> à compléter (40 champs)</li>
+                  <li>• <strong>Important :</strong> Téléchargez votre copie à la fin pour la transmettre à l'enseignant</li>
+                </ul>
+              </div>
+
+              <div class="bg-gray-50 rounded-xl p-6 mb-6">
+                <h3 class="font-semibold text-gray-800 mb-3">📚 Structure de l'évaluation</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+                  <div class="flex items-center gap-2 p-2 bg-white rounded-lg">
+                    <span class="w-8 h-8 bg-red-500 text-white rounded-full flex items-center justify-center font-bold text-xs">1</span>
+                    <div><strong>Styles Architecturaux</strong><br><span class="text-gray-500">Questions 1-18 (18 pts)</span></div>
+                  </div>
+                  <div class="flex items-center gap-2 p-2 bg-white rounded-lg">
+                    <span class="w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-xs">2</span>
+                    <div><strong>La Maquette Numérique</strong><br><span class="text-gray-500">Questions 19-27 (9 pts)</span></div>
+                  </div>
+                  <div class="flex items-center gap-2 p-2 bg-white rounded-lg">
+                    <span class="w-8 h-8 bg-yellow-500 text-white rounded-full flex items-center justify-center font-bold text-xs">3</span>
+                    <div><strong>Le CCTP</strong><br><span class="text-gray-500">Questions 28-36 (10 pts)</span></div>
+                  </div>
+                  <div class="flex items-center gap-2 p-2 bg-white rounded-lg">
+                    <span class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold text-xs">4</span>
+                    <div><strong>BIM et BIMvision</strong><br><span class="text-gray-500">Questions 37-45 (9 pts)</span></div>
+                  </div>
+                  <div class="flex items-center gap-2 p-2 bg-white rounded-lg">
+                    <span class="w-8 h-8 bg-teal-500 text-white rounded-full flex items-center justify-center font-bold text-xs">5</span>
+                    <div><strong>Intervenants et Missions</strong><br><span class="text-gray-500">Questions 46-60 (15 pts)</span></div>
+                  </div>
+                  <div class="flex items-center gap-2 p-2 bg-white rounded-lg">
+                    <span class="w-8 h-8 bg-indigo-500 text-white rounded-full flex items-center justify-center font-bold text-xs">6</span>
+                    <div><strong>CCTP École Fleurance</strong><br><span class="text-gray-500">Questions 61-90 (30 pts)</span></div>
+                  </div>
+                  <div class="flex items-center gap-2 p-2 bg-white rounded-lg">
+                    <span class="w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold text-xs">7</span>
+                    <div><strong>Structure Bois / Enveloppe</strong><br><span class="text-gray-500">Questions 91-95 (5 pts)</span></div>
+                  </div>
+                  <div class="flex items-center gap-2 p-2 bg-white rounded-lg">
+                    <span class="w-8 h-8 bg-sky-500 text-white rounded-full flex items-center justify-center font-bold text-xs">8</span>
+                    <div><strong>RE2020 et Thermique</strong><br><span class="text-gray-500">Questions 96-125 (34 pts)</span></div>
+                  </div>
+                  <div class="flex items-center gap-2 p-2 bg-white rounded-lg">
+                    <span class="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-xs">9</span>
+                    <div><strong>Questions de Synthèse</strong><br><span class="text-gray-500">Questions 126-130 (10 pts)</span></div>
+                  </div>
+                  <div class="flex items-center gap-2 p-2 bg-white rounded-lg">
+                    <span class="w-8 h-8 bg-pink-500 text-white rounded-full flex items-center justify-center font-bold text-xs">10</span>
+                    <div><strong>Carte Mentale</strong><br><span class="text-gray-500">40 champs à compléter (20 pts)</span></div>
+                  </div>
+                </div>
+                <div class="mt-4 text-center">
+                  <span class="inline-block bg-purple-600 text-white px-4 py-2 rounded-full font-bold">Total : ~160 points → Note sur 20</span>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-xl p-6 border-2 border-gray-200">
+                <h3 class="font-semibold text-gray-800 mb-4">👤 Identification</h3>
+                <div class="grid grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1">Nom</label>
+                    <input type="text" id="nomInput" class="w-full px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-purple-500 focus:outline-none uppercase" placeholder="DUPONT" />
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-600 mb-1">Prénom</label>
+                    <input type="text" id="prenomInput" class="w-full px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-purple-500 focus:outline-none" placeholder="Jean" />
+                  </div>
+                </div>
+                <button onclick="startExam();" class="w-full mt-6 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-bold py-3 px-6 rounded-xl transition-all">
+                  Commencer l'évaluation →
+                </button>
+              </div>
+
+              <button onclick="state.mode='home'; render();" class="w-full mt-4 text-gray-500 hover:text-gray-700 py-2">
+                ← Retour à l'accueil
+              </button>
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      // STUDENT SUBMITTED
+      if (state.mode === 'student' && state.step === 'submitted') {
+        const { total, maxScore } = calculateScore(state.answers, state.carteAnswers);
+        const answeredCount = Object.keys(state.answers).length;
+        const carteCount = Object.keys(state.carteAnswers).length;
+        
+        app.innerHTML = `
+          <div class="min-h-screen bg-gradient-to-br from-green-800 to-green-900 flex items-center justify-center p-4">
+            <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-8 text-center">
+              <div class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              
+              <h1 class="text-3xl font-bold text-gray-800 mb-2">Évaluation terminée !</h1>
+              <p class="text-gray-500 mb-6">Merci ${state.studentInfo.prenom} ${state.studentInfo.nom}</p>
+              
+              <div class="bg-gray-50 rounded-xl p-6 mb-6">
+                <p class="text-gray-600 mb-2">Questions QCM répondues : <strong>${answeredCount}/${questions.length}</strong></p>
+                <p class="text-gray-600">Champs carte mentale : <strong>${carteCount}/${carteQuestions.length}</strong></p>
+              </div>
+              
+              <div class="bg-amber-50 border-2 border-amber-300 rounded-xl p-4 mb-6">
+                <p class="text-amber-800 font-semibold">⚠️ Important</p>
+                <p class="text-amber-700 text-sm mt-2">N'oubliez pas de télécharger votre copie et de la transmettre à votre enseignant.</p>
+              </div>
+              
+              <button onclick="generateStudentPDF();" class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-bold py-4 px-6 rounded-xl transition-all mb-4 flex items-center justify-center gap-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                Télécharger ma copie
+              </button>
+              
+              <button onclick="state.mode='home'; state.step='intro'; state.answers={}; state.carteAnswers={}; state.timeLeft=7200; render();" class="w-full text-gray-500 hover:text-gray-700 py-2">
+                Retour à l'accueil
+              </button>
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      // STUDENT EXAM
+      if (state.mode === 'student' && state.step === 'exam') {
+        const q = questions[state.currentQuestion];
+        
+        // Get all unique parts
+        const parties = [];
+        let currentPartie = '';
+        questions.forEach((question, idx) => {
+          if (question.partie !== currentPartie) {
+            currentPartie = question.partie;
+            parties.push({
+              name: currentPartie,
+              startIdx: idx,
+              endIdx: idx,
+              color: getPartieColor(parties.length)
+            });
+          } else {
+            parties[parties.length - 1].endIdx = idx;
+          }
+        });
+        
+        const currentPartieIdx = parties.findIndex(p => state.currentQuestion >= p.startIdx && state.currentQuestion <= p.endIdx);
+        
+        let partiesNav = '';
+        parties.forEach((partie, idx) => {
+          const questionsInPart = questions.slice(partie.startIdx, partie.endIdx + 1);
+          const answeredInPart = questionsInPart.filter(q => state.answers[q.id] !== undefined).length;
+          const totalInPart = questionsInPart.length;
+          const isCurrent = idx === currentPartieIdx;
+          
+          partiesNav += `
+            <button onclick="state.currentQuestion=${partie.startIdx}; render();" 
+              class="flex items-center gap-1 px-2 py-1 rounded-lg text-xs font-medium transition-all whitespace-nowrap ${isCurrent ? 'ring-2 ring-offset-1 ring-purple-500' : ''}"
+              style="background-color: ${partie.color}20; color: ${partie.color}; border: 1px solid ${partie.color}40;"
+              title="${partie.name}">
+              <span class="font-bold">${idx + 1}</span>
+              <span class="hidden sm:inline">${answeredInPart}/${totalInPart}</span>
+            </button>
+          `;
+        });
+
+        let questionGrid = '';
+        questions.forEach((_, idx) => {
+          const isAnswered = state.answers[questions[idx].id] !== undefined;
+          const isCurrent = idx === state.currentQuestion;
+          questionGrid += `
+            <button onclick="state.currentQuestion=${idx}; render();" class="w-8 h-8 text-xs font-medium rounded ${isCurrent ? 'bg-purple-600 text-white' : isAnswered ? 'bg-green-500 text-white' : 'bg-gray-200 hover:bg-gray-300'}">
+              ${idx + 1}
+            </button>
+          `;
+        });
+
+        let options = '';
+        q.options.forEach((opt, optIdx) => {
+          const isSelected = state.answers[q.id] === optIdx;
+          options += `
+            <button onclick="state.answers[${q.id}]=${optIdx}; render();" class="w-full text-left p-4 rounded-lg border-2 transition-all ${isSelected ? 'border-purple-500 bg-purple-50' : 'border-gray-200 hover:border-purple-300 hover:bg-gray-50'}">
+              <span class="inline-flex items-center justify-center w-8 h-8 rounded-full ${isSelected ? 'bg-purple-500 text-white' : 'bg-gray-200'} font-medium mr-3">
+                ${String.fromCharCode(65 + optIdx)}
+              </span>
+              ${opt}
+            </button>
+          `;
+        });
+
+        // Carte mentale sections
+        const carteHTML = `
+          <div class="max-w-6xl mx-auto p-4">
+            <div class="bg-white rounded-xl shadow-lg p-6">
+              <h2 class="text-xl font-bold text-purple-800 mb-4">🗺️ Partie 7 : Carte Mentale à compléter</h2>
+              <p class="text-gray-600 mb-6">Complétez les champs ci-dessous avec les termes appropriés (15 points)</p>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Styles Architecturaux -->
+                <div class="bg-red-50 rounded-xl p-4 border-l-4 border-red-500">
+                  <h3 class="font-bold text-red-800 mb-3">🏛️ Styles Architecturaux</h3>
+                  <div class="space-y-2 text-sm">
+                    ${['cm1','cm2','cm3','cm4','cm5','cm6'].map(id => {
+                      const cq = carteQuestions.find(c => c.id === id);
+                      return `<div class="flex items-center gap-2">
+                        <span class="font-medium text-xs">${cq.label}</span>
+                        <input type="text" class="flex-1 border-2 border-dashed border-gray-300 rounded px-2 py-1 text-sm focus:border-red-400 focus:outline-none" value="${state.carteAnswers[id] || ''}" onchange="updateCarteAnswer('${id}', this.value)" placeholder="?">
+                      </div>`;
+                    }).join('')}
+                  </div>
+                </div>
+
+                <!-- Maquette Numérique -->
+                <div class="bg-orange-50 rounded-xl p-4 border-l-4 border-orange-500">
+                  <h3 class="font-bold text-orange-800 mb-3">💻 Maquette Numérique</h3>
+                  <div class="space-y-2 text-sm">
+                    ${['cm7','cm8','cm9','cm10','cm11'].map(id => {
+                      const cq = carteQuestions.find(c => c.id === id);
+                      return `<div class="flex items-center gap-2">
+                        <span class="font-medium text-xs">${cq.label}</span>
+                        <input type="text" class="flex-1 border-2 border-dashed border-gray-300 rounded px-2 py-1 text-sm focus:border-orange-400 focus:outline-none" value="${state.carteAnswers[id] || ''}" onchange="updateCarteAnswer('${id}', this.value)" placeholder="?">
+                      </div>`;
+                    }).join('')}
+                  </div>
+                </div>
+
+                <!-- CCTP -->
+                <div class="bg-yellow-50 rounded-xl p-4 border-l-4 border-yellow-500">
+                  <h3 class="font-bold text-yellow-800 mb-3">📋 CCTP</h3>
+                  <div class="space-y-2 text-sm">
+                    ${['cm12','cm13','cm14'].map(id => {
+                      const cq = carteQuestions.find(c => c.id === id);
+                      return `<div class="flex items-center gap-2">
+                        <span class="font-medium text-xs">${cq.label}</span>
+                        <input type="text" class="flex-1 border-2 border-dashed border-gray-300 rounded px-2 py-1 text-sm focus:border-yellow-400 focus:outline-none" value="${state.carteAnswers[id] || ''}" onchange="updateCarteAnswer('${id}', this.value)" placeholder="?">
+                      </div>`;
+                    }).join('')}
+                  </div>
+                </div>
+
+                <!-- Intervenants -->
+                <div class="bg-green-50 rounded-xl p-4 border-l-4 border-green-500">
+                  <h3 class="font-bold text-green-800 mb-3">👥 Intervenants</h3>
+                  <div class="space-y-2 text-sm">
+                    ${['cm15','cm16','cm17','cm18'].map(id => {
+                      const cq = carteQuestions.find(c => c.id === id);
+                      return `<div class="flex items-center gap-2">
+                        <span class="font-medium text-xs">${cq.label}</span>
+                        <input type="text" class="flex-1 border-2 border-dashed border-gray-300 rounded px-2 py-1 text-sm focus:border-green-400 focus:outline-none" value="${state.carteAnswers[id] || ''}" onchange="updateCarteAnswer('${id}', this.value)" placeholder="?">
+                      </div>`;
+                    }).join('')}
+                  </div>
+                </div>
+
+                <!-- Missions MOE -->
+                <div class="bg-teal-50 rounded-xl p-4 border-l-4 border-teal-500">
+                  <h3 class="font-bold text-teal-800 mb-3">📝 Missions MOE</h3>
+                  <div class="space-y-2 text-sm">
+                    ${['cm19','cm20','cm21','cm22','cm23','cm24'].map(id => {
+                      const cq = carteQuestions.find(c => c.id === id);
+                      return `<div class="flex items-center gap-2">
+                        <span class="font-medium text-xs">${cq.label}</span>
+                        <input type="text" class="flex-1 border-2 border-dashed border-gray-300 rounded px-2 py-1 text-sm focus:border-teal-400 focus:outline-none" value="${state.carteAnswers[id] || ''}" onchange="updateCarteAnswer('${id}', this.value)" placeholder="?">
+                      </div>`;
+                    }).join('')}
+                  </div>
+                </div>
+
+                <!-- Phases et autres -->
+                <div class="bg-blue-50 rounded-xl p-4 border-l-4 border-blue-500">
+                  <h3 class="font-bold text-blue-800 mb-3">🔧 Phases et Documents</h3>
+                  <div class="space-y-2 text-sm">
+                    ${['cm25','cm26','cm27','cm28','cm29','cm30'].map(id => {
+                      const cq = carteQuestions.find(c => c.id === id);
+                      return `<div class="flex items-center gap-2">
+                        <span class="font-medium text-xs">${cq.label}</span>
+                        <input type="text" class="flex-1 border-2 border-dashed border-gray-300 rounded px-2 py-1 text-sm focus:border-blue-400 focus:outline-none" value="${state.carteAnswers[id] || ''}" onchange="updateCarteAnswer('${id}', this.value)" placeholder="?">
+                      </div>`;
+                    }).join('')}
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-6 flex justify-center">
+                <button onclick="state.showCarte=false; render();" class="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-medium transition-colors">
+                  ← Retour aux QCM
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+
+        app.innerHTML = `
+          <div class="min-h-screen bg-gray-100">
+            <div class="bg-purple-800 text-white py-3 px-4 sticky top-0 z-50 shadow-lg">
+              <div class="max-w-4xl mx-auto flex justify-between items-center">
+                <div class="flex items-center gap-4">
+                  <span class="font-semibold">${state.studentInfo.prenom} ${state.studentInfo.nom}</span>
+                  <span class="text-purple-200">|</span>
+                  <span class="text-sm">${state.showCarte ? 'Carte Mentale' : `Question ${state.currentQuestion + 1}/${questions.length}`}</span>
+                </div>
+                <div class="font-mono text-xl font-bold ${state.timeLeft < 600 ? 'text-red-300 animate-pulse' : ''}">
+                  ⏱ ${formatTime(state.timeLeft)}
+                </div>
+              </div>
+            </div>
+
+            <div class="max-w-4xl mx-auto px-4 pt-4">
+              <div class="bg-white rounded-xl shadow p-2 flex gap-2 mb-2">
+                <button onclick="state.showCarte=false; render();" class="flex-1 py-2 px-4 rounded-lg font-medium transition-colors ${!state.showCarte ? 'bg-purple-600 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}">
+                  📝 QCM (${Object.keys(state.answers).length}/${questions.length})
+                </button>
+                <button onclick="state.showCarte=true; render();" class="flex-1 py-2 px-4 rounded-lg font-medium transition-colors ${state.showCarte ? 'bg-purple-600 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}">
+                  🗺️ Carte Mentale (${Object.keys(state.carteAnswers).length}/${carteQuestions.length})
+                </button>
+              </div>
+              
+              ${!state.showCarte ? `
+              <div class="bg-white rounded-xl shadow p-2 mb-4">
+                <p class="text-xs text-gray-500 mb-2 px-1">📚 Navigation par partie :</p>
+                <div class="flex flex-wrap gap-1">
+                  ${partiesNav}
+                </div>
+              </div>
+              ` : ''}
+            </div>
+
+            ${state.showCarte ? carteHTML : `
+              <div class="max-w-4xl mx-auto p-4">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-4">
+                  <div class="px-6 py-3 flex items-center gap-3" style="background-color: ${parties[currentPartieIdx]?.color || '#8b5cf6'}">
+                    <span class="w-8 h-8 bg-white bg-opacity-30 rounded-full flex items-center justify-center font-bold text-white">${currentPartieIdx + 1}</span>
+                    <span class="font-semibold text-white">${q.partie}</span>
+                  </div>
+                  <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                      <h2 class="text-xl font-bold text-gray-800">Question ${state.currentQuestion + 1}</h2>
+                      <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">${q.points} pt${q.points > 1 ? 's' : ''}</span>
+                    </div>
+                    <p class="text-lg text-gray-700 mb-6">${q.question}</p>
+                    <div class="space-y-3">
+                      ${options}
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex justify-between items-center gap-4">
+                  <button onclick="if(state.currentQuestion > 0) { state.currentQuestion--; render(); }" ${state.currentQuestion === 0 ? 'disabled' : ''} class="px-6 py-3 bg-gray-200 hover:bg-gray-300 disabled:opacity-50 rounded-lg font-medium transition-colors">
+                    ← Précédent
+                  </button>
+
+                  <div class="flex-1 bg-white rounded-lg p-3 shadow">
+                    <div class="flex flex-wrap gap-1 justify-center">
+                      ${questionGrid}
+                    </div>
+                  </div>
+
+                  ${state.currentQuestion < questions.length - 1 ? `
+                    <button onclick="state.currentQuestion++; render();" class="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-medium transition-colors">
+                      Suivant →
+                    </button>
+                  ` : `
+                    <button onclick="state.showCarte=true; render();" class="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-medium transition-colors">
+                      Carte Mentale →
+                    </button>
+                  `}
+                </div>
+
+                <div class="mt-4 bg-white rounded-lg p-4 shadow">
+                  <div class="flex justify-between text-sm text-gray-600">
+                    <span>QCM : ${Object.keys(state.answers).length}/${questions.length}</span>
+                    <span>Carte : ${Object.keys(state.carteAnswers).length}/${carteQuestions.length}</span>
+                  </div>
+                  <div class="mt-2 bg-gray-200 rounded-full h-2">
+                    <div class="bg-green-500 h-2 rounded-full transition-all" style="width: ${((Object.keys(state.answers).length + Object.keys(state.carteAnswers).length) / (questions.length + carteQuestions.length)) * 100}%"></div>
+                  </div>
+                </div>
+              </div>
+            `}
+
+            ${state.showCarte ? `
+              <div class="max-w-6xl mx-auto px-4 pb-4">
+                <div class="bg-green-50 border-2 border-green-300 rounded-xl p-4 text-center">
+                  <p class="text-green-800 mb-3">Vous avez terminé le QCM et la carte mentale ?</p>
+                  <button onclick="state.showConfirmSubmit=true; render();" class="px-8 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-bold transition-colors">
+                    ✓ Terminer et soumettre l'évaluation
+                  </button>
+                </div>
+              </div>
+            ` : ''}
+
+            ${state.showConfirmSubmit ? `
+              <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+                <div class="bg-white rounded-xl p-6 max-w-md w-full">
+                  <h3 class="text-xl font-bold text-gray-800 mb-4">Confirmer la soumission</h3>
+                  <div class="space-y-2 text-gray-600 mb-4">
+                    <p>📝 QCM : <strong>${Object.keys(state.answers).length}</strong> / ${questions.length} questions</p>
+                    <p>🗺️ Carte mentale : <strong>${Object.keys(state.carteAnswers).length}</strong> / ${carteQuestions.length} champs</p>
+                  </div>
+                  ${(Object.keys(state.answers).length < questions.length || Object.keys(state.carteAnswers).length < carteQuestions.length) ? `
+                    <p class="text-amber-600 mb-4">
+                      ⚠️ Certaines réponses sont manquantes.
+                    </p>
+                  ` : ''}
+                  <div class="flex gap-3">
+                    <button onclick="state.showConfirmSubmit=false; render();" class="flex-1 px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-lg font-medium">
+                      Continuer
+                    </button>
+                    <button onclick="confirmSubmit();" class="flex-1 px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium">
+                      Confirmer
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ` : ''}
+          </div>
+        `;
+        return;
+      }
+    }
+
+    // INIT
+    render();
+  </script>
+</body>
+</html>
